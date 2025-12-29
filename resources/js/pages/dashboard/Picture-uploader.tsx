@@ -1,14 +1,34 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { UploadCloud, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { UploadCloud, X, Image as ImageIcon, Loader2 } from "lucide-react";
 import axios from "axios";
+import { toast } from "sonner";
 
-export default function PictureUploader({ value, onChange }: { value: string[], onChange: (urls: string[]) => void }) {
+interface PictureUploaderProps {
+    value: string[];
+    onChange: (urls: string[]) => void;
+    maxFiles?: number;
+    className?: string;
+}
+
+export default function PictureUploader({
+                                            value,
+                                            onChange,
+                                            maxFiles = 4,
+                                            className = ""
+                                        }: PictureUploaderProps) {
     const [uploading, setUploading] = useState(false);
+    const [dragOver, setDragOver] = useState(false);
 
     const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = e.target.files;
-        if (!files) return;
+        if (!files || files.length === 0) return;
+
+        if (value.length + files.length > maxFiles) {
+            toast.error(`Maximum ${maxFiles} images autorisées`);
+            return;
+        }
 
         setUploading(true);
         const formData = new FormData();
@@ -26,8 +46,10 @@ export default function PictureUploader({ value, onChange }: { value: string[], 
 
             // On fusionne les nouvelles URLs avec les anciennes
             onChange([...value, ...response.data.urls]);
+            toast.success(`${response.data.urls.length} image(s) téléchargée(s)`);
         } catch (error) {
             console.error("Erreur upload:", error);
+            toast.error("Échec du téléchargement des images");
         } finally {
             setUploading(false);
         }
@@ -40,41 +62,108 @@ export default function PictureUploader({ value, onChange }: { value: string[], 
 
             // 2. Mise à jour de l'état local (visuel) seulement si le serveur a réussi
             onChange(value.filter(url => url !== urlToRemove));
+            toast.success("Image supprimée");
         } catch (error) {
             console.error("Erreur lors de la suppression physique:", error);
-            // Optionnel : tu peux quand même supprimer visuellement ou afficher une erreur
+            toast.error("Échec de la suppression de l'image");
+        }
+    };
+
+    const handleDragOver = (e: React.DragEvent) => {
+        e.preventDefault();
+        setDragOver(true);
+    };
+
+    const handleDragLeave = () => {
+        setDragOver(false);
+    };
+
+    const handleDrop = (e: React.DragEvent) => {
+        e.preventDefault();
+        setDragOver(false);
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.files = files;
+            handleUpload({ target: { files } } as unknown as React.ChangeEvent<HTMLInputElement>);
         }
     };
 
     return (
-        <div className="space-y-4 w-full">
-            <div className="grid grid-cols-3 gap-4">
+        <div className={`space-y-4 w-full ${className}`}>
+            {/* Header avec instructions */}
+            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                <ImageIcon className="h-4 w-4" />
+                <span>Glissez-déposez ou cliquez pour ajouter des images</span>
+            </div>
+
+            {/* Grille d'images */}
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
                 {value.map((url, index) => (
-                    <div key={index} className="relative group aspect-video border rounded-lg overflow-hidden bg-muted">
-                        <img src={url} alt="Preview" className="object-cover w-full h-full" />
-                        <button
+                    <div
+                        key={index}
+                        className="relative group aspect-square border rounded-lg overflow-hidden bg-muted"
+                    >
+                        <img
+                            src={url}
+                            alt={`Preview ${index + 1}`}
+                            className="object-cover w-full h-full"
+                        />
+                        <Button
                             type="button"
                             onClick={() => removeImage(url)}
-                            className="absolute top-1 right-1 bg-destructive text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                            variant="destructive"
+                            size="icon"
+                            className="absolute top-1 right-1 h-6 w-6 bg-destructive/80 hover:bg-destructive"
                         >
-                            <X className="h-4 w-4" />
-                        </button>
+                            <X className="h-3 w-3" />
+                        </Button>
                     </div>
                 ))}
 
-                <label className="flex flex-col items-center justify-center border-2 border-dashed rounded-lg cursor-pointer hover:bg-accent hover:border-primary transition-all aspect-video">
-                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                {/* Zone de téléchargement */}
+                <label
+                    className={`flex flex-col items-center justify-center border-2 border-dashed rounded-lg cursor-pointer transition-all aspect-square
+            ${dragOver ? 'border-primary bg-primary/10' : 'border-muted hover:border-primary hover:bg-accent'}`}
+                    onDragOver={handleDragOver}
+                    onDragLeave={handleDragLeave}
+                    onDrop={handleDrop}
+                >
+                    <div className="flex flex-col items-center justify-center w-full h-full p-4">
                         {uploading ? (
-                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                            <div className="flex flex-col items-center gap-2">
+                                <Loader2 className="h-6 w-6 animate-spin text-primary" />
+                                <span className="text-sm">Téléchargement...</span>
+                            </div>
                         ) : (
                             <>
-                                <UploadCloud className="w-8 h-8 mb-2 text-muted-foreground" />
-                                <p className="text-xs text-muted-foreground">Cliquez pour ajouter</p>
+                                <UploadCloud className="w-8 h-8 mb-1 text-muted-foreground" />
+                                <p className="text-xs text-center text-muted-foreground">
+                                    {maxFiles - value.length > 0
+                                        ? `Ajouter ${maxFiles - value.length} image(s)`
+                                        : 'Maximum atteint'}
+                                </p>
                             </>
                         )}
                     </div>
-                    <Input type="file" multiple className="hidden" onChange={handleUpload} disabled={uploading} accept="image/*" />
+                    <Input
+                        type="file"
+                        multiple
+                        className="hidden"
+                        onChange={handleUpload}
+                        disabled={uploading || value.length >= maxFiles}
+                        accept="image/*"
+                    />
                 </label>
+            </div>
+
+            {/* Indicateurs */}
+            <div className="flex justify-between text-xs text-muted-foreground">
+                <span>{value.length} image(s) sélectionnée(s)</span>
+                {value.length < maxFiles && (
+                    <span>Taille max: 5MB par image</span>
+                )}
             </div>
         </div>
     );

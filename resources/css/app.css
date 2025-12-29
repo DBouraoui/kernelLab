@@ -171,56 +171,29 @@
 }
 
 
-/* --- Correction Dark Mode pour SimpleMDE --- */
-
-/* Fond de l'éditeur */
-.editor-toolbar,
-.CodeMirror,
-.editor-preview-side {
-    background-color: hsl(var(--background)) !important;
-    color: hsl(var(--foreground)) !important;
-    border-color: hsl(var(--border)) !important;
+/* Ajoute cela à ton fichier CSS */
+.prose table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
 }
 
-/* Barre d'outils (Icônes) */
-.editor-toolbar button {
-    color: hsl(var(--foreground)) !important;
+.prose th,
+.prose td {
+    border: 1px solid #e2e8f0;
+    padding: 0.5em;
 }
 
-.editor-toolbar button:hover,
-.editor-toolbar button.active {
-    background-color: hsl(var(--accent)) !important;
-    border-color: hsl(var(--border)) !important;
+.prose th {
+    background-color: #f7fafc;
+    font-weight: bold;
 }
 
-/* Texte à l'intérieur de l'éditeur */
-.CodeMirror-cursor {
-    border-left: 2px solid hsl(var(--foreground)) !important;
+.prose img {
+    max-width: 100%;
+    height: auto;
+    margin: 1em 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.25rem;
 }
 
-/* Suppression de l'effet blanc/gris par défaut sur les titres en MD */
-.cm-header-1, .cm-header-2, .cm-header-3 {
-    color: hsl(var(--primary)) !important;
-}
-
-.CodeMirror-fullscreen,
-.editor-preview-active-side {
-    z-index: 9999 !important;
-    position: fixed !important; /* Assure que ça couvre tout l'écran */
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    height: auto !important;
-}
-
-/* On s'assure que la barre d'outils suit aussi en plein écran */
-.editor-toolbar.fullscreen {
-    z-index: 10000 !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    opacity: 1 !important;
-    background: black !important;
-}
