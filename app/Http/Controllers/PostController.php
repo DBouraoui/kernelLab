@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 
@@ -19,6 +20,7 @@ class PostController extends Controller
             'description' => ['required', 'string', 'min:2', 'max:255'],
             'content' => ['required', 'string'],
             'tags' => ['required', 'array', 'min:1'],
+            'image' => 'nullable|array',
         ]);
 
         Post::create([
@@ -27,9 +29,43 @@ class PostController extends Controller
             'slug'        => Str::slug($validated['title']),
             'content'     => $validated['content'],
             'tags'        => $validated['tags'],
+            'image'       => $validated['image'],
             'user_id' => auth()->id(),
         ]);
 
         return redirect()->route('dashboard')->with('success', 'Article créé !');
+    }
+
+    public function uploadImages(Request $request)
+    {
+        $request->validate([
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
+        ]);
+
+        $urls = [];
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                // On stocke dans storage/app/public/posts
+                $path = $image->store('posts', 'public');
+                // On génère l'URL publique
+                $urls[] = Storage::url($path);
+            }
+        }
+
+        return response()->json(['urls' => $urls]);
+    }
+
+    public function deleteImage(Request $request)
+    {
+        $url = $request->url;
+        $path = Str::after($url, '/storage/');
+
+        if (Storage::disk('public')->exists($path)) {
+            Storage::disk('public')->delete($path);
+            return response()->json(['message' => 'Fichier supprimé']);
+        }
+
+        return response()->json(['message' => 'Fichier introuvable'], 404);
     }
 }

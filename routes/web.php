@@ -18,6 +18,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('dashboard/add-post', [PostController::class, 'index'])->name('dashboard.add-post');
     Route::post('dashboard/store', [PostController::class, 'store'])->name('dashboard.store-post');
+    Route::post('/dashboard/upload-images', [PostController::class, 'uploadImages']);
+    Route::post('/dashboard/delete-image', [PostController::class, 'deleteImage']);
 });
 
 require __DIR__.'/settings.php';

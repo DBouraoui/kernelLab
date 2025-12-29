@@ -43,7 +43,8 @@ class Post extends Authenticatable
     protected function casts(): array
     {
         return [
-            'tags'=> 'array'
+            'tags'=> 'array',
+            'image' => 'array',
         ];
     }
 }

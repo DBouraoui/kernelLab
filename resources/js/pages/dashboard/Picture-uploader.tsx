@@ -33,8 +33,17 @@ export default function PictureUploader({ value, onChange }: { value: string[], 
         }
     };
 
-    const removeImage = (urlToRemove: string) => {
-        onChange(value.filter(url => url !== urlToRemove));
+    const removeImage = async (urlToRemove: string) => {
+        try {
+            // 1. Suppression physique sur le serveur
+            await axios.post('/dashboard/delete-image', { url: urlToRemove });
+
+            // 2. Mise à jour de l'état local (visuel) seulement si le serveur a réussi
+            onChange(value.filter(url => url !== urlToRemove));
+        } catch (error) {
+            console.error("Erreur lors de la suppression physique:", error);
+            // Optionnel : tu peux quand même supprimer visuellement ou afficher une erreur
+        }
     };
 
     return (

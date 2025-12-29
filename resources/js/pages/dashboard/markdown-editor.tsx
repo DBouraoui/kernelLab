@@ -10,6 +10,7 @@ export default function MarkdownEditor({field}: {field: ControllerRenderProps<{
         description: string;
         content: string;
         tags: string[];
+        image: string[]
     }, 'content'>}) {
 
     const mdeOptions = useMemo(() => {

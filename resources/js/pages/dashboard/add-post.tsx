@@ -3,7 +3,7 @@ import AppLayout from '@/layouts/app-layout';
 import type { BreadcrumbItem } from '@/types';
 import { dashboard } from '@/routes';
 import { useForm } from 'react-hook-form';
-import { Form, FormField, FormControl, FormDescription, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Form, FormField, FormControl,  FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -12,22 +12,17 @@ import { useState } from 'react';
 import TagsSelector from '@/pages/dashboard/tags-selector';
 import { toast } from 'sonner';
 import MarkdownEditor from '@/pages/dashboard/markdown-editor';
+import PictureUploader from '@/pages/dashboard/Picture-uploader';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Loader2, Send } from "lucide-react";
 
-// 1. Mise à jour du Schema Zod pour accepter un tableau de strings
 const schema = z.object({
-    title: z.string().min(2, {
-        message: "Le titre doit contenir au moins 2 caractères.",
-    }),
-    description: z.string().min(2, {
-        message: "La description doit faire au minimum 2 caractères"
-    }),
-    content: z.string().min(2, {
-        message: "Le contenu doit faire au minimum 2 caractères"
-    }),
-    // On valide que c'est un tableau et qu'il y a au moins un tag
-    tags: z.array(z.string()).min(1, {
-        message: "Veuillez sélectionner au moins un tag."
-    })
+    title: z.string().min(2, "Le titre est trop court"),
+    description: z.string().min(2, "La description est requise"),
+    content: z.string().min(10, "Le contenu est un peu vide..."),
+    tags: z.array(z.string()).min(1, "Choisissez au moins un tag"),
+    image: z.array(z.string()).min(1, "Une image de couverture est requise"),
 })
 
 export default function AddPost() {
@@ -35,7 +30,7 @@ export default function AddPost() {
 
     const breadcrumbs: BreadcrumbItem[] = [
         { title: 'Dashboard', href: dashboard().url },
-        { title: 'Ajouter un article', href: '/dashboard/add' },
+        { title: 'Nouvel Article', href: '/dashboard/add' },
     ];
 
     const form = useForm<z.infer<typeof schema>>({
@@ -45,28 +40,23 @@ export default function AddPost() {
             description: "",
             content: "",
             tags: [],
+            image: []
         },
     })
 
     function onSubmit(values: z.infer<typeof schema>) {
         setIsLoading(true);
-
         router.post('/dashboard/store', values, {
             onSuccess: () => {
                 form.reset();
-                setIsLoading(false);
-                toast('Post créer avec succes')
+                toast.success('L\'article a été publié avec succès !');
             },
             onError: (errors) => {
                 Object.keys(errors).forEach((key) => {
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-expect-error
-                    return form.setError(key, {
-                        type: 'manual',
-                        message: errors[key],
-                    });
+                    // @ts-expect-error dynamic key access
+                    form.setError(key, { type: 'manual', message: errors[key] });
                 });
-                setIsLoading(false);
+                toast.error('Erreur lors de la publication');
             },
             onFinish: () => setIsLoading(false)
         });
@@ -74,78 +64,140 @@ export default function AddPost() {
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Ajouter un article" />
-            <div className="flex h-full w-full items-center justify-center flex-col gap-4 rounded-xl p-4">
-                <h2>Ajouter un article</h2>
-                <div className="max-w-4xl w-full">
+            <Head title="Créer un article" />
+
+            <div className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
+                <div className="flex flex-col gap-8">
+                    {/* Header */}
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <h1 className="text-3xl font-bold tracking-tight">Créer un article</h1>
+                            <p className="text-muted-foreground">Rédigez et publiez votre prochain contenu technique.</p>
+                        </div>
+                    </div>
+
+                    <Separator />
+
                     <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-full">
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-                            {/* Titre */}
-                            <FormField
-                                control={form.control}
-                                name="title"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Titre de l'article</FormLabel>
-                                        <FormControl>
-                                            <Input placeholder="Entrez le titre..." {...field} />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
+                            {/* Colonne Principale (Gauche) */}
+                            <div className="lg:col-span-2 space-y-6">
+                                <Card>
+                                    <CardHeader>
+                                        <CardTitle>Contenu</CardTitle>
+                                        <CardDescription>Le corps de votre article en Markdown.</CardDescription>
+                                    </CardHeader>
+                                    <CardContent className="space-y-4">
+                                        <FormField
+                                            control={form.control}
+                                            name="title"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>Titre</FormLabel>
+                                                    <FormControl>
+                                                        <Input className="text-lg font-semibold" placeholder="Comment déployer K3s sur un Raspberry Pi..." {...field} />
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        <FormField
+                                            control={form.control}
+                                            name="description"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>Accroche (SEO)</FormLabel>
+                                                    <FormControl>
+                                                        <Input placeholder="Un court résumé pour donner envie de lire..." {...field} />
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        <FormField
+                                            control={form.control}
+                                            name="content"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormControl>
+                                                        <div className="min-h-[400px] rounded-md border">
+                                                            <MarkdownEditor field={field}/>
+                                                        </div>
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                    </CardContent>
+                                </Card>
+                            </div>
 
-                            {/* Description */}
-                            <FormField
-                                control={form.control}
-                                name="description"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Description courte</FormLabel>
-                                        <FormControl>
-                                            <Input placeholder="Résumé de l'article..." {...field} />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
+                            {/* Colonne Latérale (Droite) */}
+                            <div className="space-y-6">
+                                {/* Section Images */}
+                                <Card>
+                                    <CardHeader>
+                                        <CardTitle>Médias</CardTitle>
+                                        <CardDescription>Images illustratives.</CardDescription>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <FormField
+                                            control={form.control}
+                                            name="image"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormControl>
+                                                        <PictureUploader value={field.value} onChange={field.onChange} />
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                    </CardContent>
+                                </Card>
 
-                            {/* Contenu */}
-                            <FormField
-                                control={form.control}
-                                name="content"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Contenu</FormLabel>
-                                        <FormControl>
-                                            <MarkdownEditor field={field}/>
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
+                                {/* Section Tags */}
+                                <Card>
+                                    <CardHeader>
+                                        <CardTitle>Classification</CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="space-y-4">
+                                        <FormField
+                                            control={form.control}
+                                            name="tags"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>Technologies</FormLabel>
+                                                    <FormControl>
+                                                        <TagsSelector field={field} />
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                    </CardContent>
+                                </Card>
 
-                            <FormField
-                                control={form.control}
-                                name="tags"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Tags (Frameworks, DevOps, Infra...)</FormLabel>
-                                        <FormControl>
-                                            <TagsSelector field={field} />
-                                        </FormControl>
-                                        <FormDescription>
-                                            Sélectionnez les technologies abordées dans cet article.
-                                        </FormDescription>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-
-                            <Button type="submit" className="w-full md:w-auto" disabled={isLoading}>
-                                {isLoading ? "Publication en cours..." : "Publier l'article"}
-                            </Button>
+                                {/* Actions */}
+                                <Card className="bg-muted/50">
+                                    <CardContent className="pt-6">
+                                        <Button type="submit" className="w-full" size="lg" disabled={isLoading}>
+                                            {isLoading ? (
+                                                <>
+                                                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                                    Envoi...
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <Send className="mr-2 h-4 w-4" />
+                                                    Publier l'article
+                                                </>
+                                            )}
+                                        </Button>
+                                    </CardContent>
+                                </Card>
+                            </div>
                         </form>
                     </Form>
                 </div>

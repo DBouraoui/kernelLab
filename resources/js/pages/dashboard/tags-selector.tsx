@@ -16,6 +16,7 @@ export default function TagsSelector({ field }: { field: ControllerRenderProps<{
         description: string;
         content: string;
         tags: string[];
+        image: string[];
     }, 'tags'>}) {
 
     const categories = [
