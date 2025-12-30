@@ -1,24 +1,17 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use Laravel\Fortify\Features;
 
-Route::get('/', function () {
-    return Inertia::render('welcome', [
-        'canRegister' => Features::enabled(Features::registration()),
-    ]);
-})->name('home');
 
-Route::get('/blog', function () {
-    return Inertia::render('blog');
-})->name('blog');
+Route::get('/', [GuestController::class, 'home'])->name('home');
+Route::get('/blog', [GuestController::class, 'blog'])->name('blog');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 
     Route::get('/dashboard/post/view', [PostController::class, 'list'])->name('post.list');
     Route::get('/dashboard/post/add', [PostController::class, 'create'])->name('post.create');
