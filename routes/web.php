@@ -19,6 +19,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/post/view', [PostController::class, 'list'])->name('post.list');
     Route::get('/dashboard/post/add', [PostController::class, 'create'])->name('post.create');
     Route::post('/dashboard/store', [PostController::class, 'store'])->name('post.store');
+    Route::delete('/dashboard/post/{id}', [PostController::class, 'delete'])->name('post.delete');
     Route::post('/dashboard/upload-images', [PostController::class, 'uploadImages']);
     Route::post('/dashboard/delete-image', [PostController::class, 'deleteImage']);
 });

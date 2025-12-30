@@ -21,6 +21,17 @@ class PostController extends Controller
         return Inertia::render('posts/list', compact('posts'));
     }
 
+
+    public function delete(int $id)
+    {
+        $post = Post::findOrFail($id);
+
+        $post->delete();
+
+        return redirect()
+            ->route('post.list')
+            ->with('success', 'Article supprimé avec succès');
+    }
     public function store(Request $request) {
         $validated = $request->validate([
             'title' => ['required', 'string', 'min:2', 'max:255'],

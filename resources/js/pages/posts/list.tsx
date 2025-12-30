@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head, router } from '@inertiajs/react';
 import { useState, useMemo } from 'react';
 import { Separator } from '@/components/ui/separator';
 import AppLayout from '@/layouts/app-layout';
@@ -29,6 +29,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from '@/components/ui/carousel';
+import { toast } from 'sonner';
 
 export default function List({ posts }: { posts: Post[] }) {
     const breadcrumbs: BreadcrumbItem[] = [
@@ -37,6 +38,7 @@ export default function List({ posts }: { posts: Post[] }) {
     ];
 
     const postsArray = Object.values(posts);
+    const [isLoading, setIsLoading] = useState(false);
 
     const [sortBy, setSortBy] = useState<string>('created_desc');
     const [searchQuery, setSearchQuery] = useState<string>('');
@@ -151,6 +153,21 @@ export default function List({ posts }: { posts: Post[] }) {
         selectedTags.length +
         (filterWithImages !== null ? 1 : 0) +
         (dateRange !== 'all' ? 1 : 0);
+
+    function onDelete(post : Post) {
+        setIsLoading(true);
+        router.delete(`/dashboard/post/${post.id}`, {
+            onSuccess: () => {
+                toast.success('L\'article a été supprimer avec succès !');
+            },
+            onError: () => {
+                toast.error('erreur l\'or de la suppression du post !');
+            },
+            onFinish:()=> {
+                setIsLoading(false);
+        }
+        });
+    }
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
@@ -469,6 +486,7 @@ export default function List({ posts }: { posts: Post[] }) {
                                             variant="destructive"
                                             size="sm"
                                             className="flex-1"
+                                            onClick={()=>onDelete(item)}
                                         >
                                             <Trash2 className="mr-2 h-4 w-4" />
                                             Supprimer
