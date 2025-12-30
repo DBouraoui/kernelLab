@@ -12,13 +12,13 @@ use Inertia\Inertia;
 class PostController extends Controller
 {
     public function create() {
-        return Inertia::render('posts/create');
+        return Inertia::render('admin/posts/create');
     }
     public function list()
     {
         $posts = Post::orderBy('created_at', 'desc')->get();
 
-        return Inertia::render('posts/list', compact('posts'));
+        return Inertia::render('admin/posts/list', compact('posts'));
     }
 
 
@@ -39,7 +39,7 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()
-            ->route('post.list')
+            ->route('admin.post.list')
             ->with('success', 'Article supprimé avec succès');
     }
 
@@ -59,7 +59,7 @@ class PostController extends Controller
         ]);
 
         return redirect()
-            ->route('post.list')
+            ->route('admin.post.list')
             ->with('success', 'Article modifié avec succès');
     }
 

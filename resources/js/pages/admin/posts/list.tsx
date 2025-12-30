@@ -30,7 +30,7 @@ import {
     CarouselPrevious,
 } from '@/components/ui/carousel';
 import { toast } from 'sonner';
-import UpdatePost from '@/pages/posts/update';
+import UpdatePost from '@/pages/admin/posts/update';
 
 export default function List({ posts }: { posts: Post[] }) {
     const breadcrumbs: BreadcrumbItem[] = [

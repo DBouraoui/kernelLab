@@ -22,7 +22,7 @@ import {
     FormLabel,
     FormMessage,
 } from '@/components/ui/form'
-import MarkdownEditor from '@/pages/posts/markdown-editor'
+import MarkdownEditor from '@/pages/admin/posts/markdown-editor'
 import { router } from '@inertiajs/react';
 import { toast } from 'sonner';
 import { useState } from 'react';

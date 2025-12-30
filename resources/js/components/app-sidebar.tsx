@@ -10,18 +10,19 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import {  dashboard } from '@/routes';
+import { contact, dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import {
     BookOpen,
+    ContactIcon,
     EyeIcon,
     Folder,
     LayoutGrid,
     StickyNote,
 } from 'lucide-react';
 import AppLogo from './app-logo';
-import post from '@/routes/post';
+import admin from '@/routes/admin';
 
 const mainNavItems: NavItem[] = [
     {
@@ -31,13 +32,18 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Créer un article',
-        href: post.create(),
+        href: admin.post.create(),
         icon: StickyNote,
     },
     {
         title: 'Voir les articles',
-        href: post.list(),
+        href: admin.post.list(),
         icon: EyeIcon,
+    },
+    {
+        title: 'Mes contacts',
+        href: admin.contact().url,
+        icon: ContactIcon,
     }
 
 ];
