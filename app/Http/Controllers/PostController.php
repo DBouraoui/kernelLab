@@ -15,7 +15,6 @@ class PostController extends Controller
     }
     public function list()
     {
-        // Utiliser orderBy au lieu de sortByDesc pour meilleures performances
         $posts = Post::orderBy('created_at', 'desc')->get();
 
         return Inertia::render('posts/list', compact('posts'));
@@ -25,6 +24,16 @@ class PostController extends Controller
     public function delete(int $id)
     {
         $post = Post::findOrFail($id);
+
+        if (!empty($post->image) && is_array($post->image)) {
+            foreach ($post->image as $url) {
+                $path = Str::after($url, '/storage/');
+
+                if (Storage::disk('public')->exists($path)) {
+                    Storage::disk('public')->delete($path);
+                }
+            }
+        }
 
         $post->delete();
 

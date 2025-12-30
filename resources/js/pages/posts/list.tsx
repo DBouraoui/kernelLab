@@ -7,7 +7,7 @@ import { dashboard } from '@/routes';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Pencil, Trash2, Calendar, Eye, ArrowUpDown, Search, Filter, X, Tag, Image } from "lucide-react";
+import { Pencil, Trash2, Calendar, Eye, ArrowUpDown, Search, Filter, X, Tag, Image, Loader2 } from "lucide-react";
 import {
     Select,
     SelectContent,
@@ -167,6 +167,10 @@ export default function List({ posts }: { posts: Post[] }) {
                 setIsLoading(false);
         }
         });
+    }
+
+    function openPopinUpdate(item :Post){
+
     }
 
     return (
@@ -478,6 +482,7 @@ export default function List({ posts }: { posts: Post[] }) {
                                             variant="outline"
                                             size="sm"
                                             className="flex-1 hover:bg-primary hover:text-primary-foreground transition-colors"
+                                            onClick={() => ()=>openPopinUpdate(item)}
                                         >
                                             <Pencil className="mr-2 h-4 w-4" />
                                             Modifier
@@ -488,8 +493,19 @@ export default function List({ posts }: { posts: Post[] }) {
                                             className="flex-1"
                                             onClick={()=>onDelete(item)}
                                         >
-                                            <Trash2 className="mr-2 h-4 w-4" />
-                                            Supprimer
+                                            {
+                                                isLoading ? (
+                                                    <>
+                                                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                                        Supression...
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <Trash2 className="mr-2 h-4 w-4" />
+                                                        Supprimer
+                                                    </>
+                                                )
+                                            }
                                         </Button>
                                     </CardFooter>
                                 </Card>
