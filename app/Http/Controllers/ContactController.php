@@ -37,7 +37,7 @@ class ContactController extends Controller
             'phone' => $validated['phone'],
         ]);
 
-        return redirect()->route('contact')->with('success', 'Contact envoyer');
+        return redirect()->route('home')->with('success', 'Contact envoyer');
     }
 
     /**

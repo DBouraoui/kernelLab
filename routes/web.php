@@ -42,6 +42,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::controller(AdminContactController::class)->group(function () {
             Route::get('/contact', 'index')->name('admin.contact');
+            Route::delete('/contact/{id}', 'destroy')->name('admin.contact.delete');
         });
     });
 });
