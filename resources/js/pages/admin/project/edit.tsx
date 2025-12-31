@@ -131,6 +131,8 @@ export default function EditProject({ project }: EditProjectProps) {
                                 <Input value={data.stack} onChange={e => setData('stack', e.target.value)} />
                                 <Label>GitHub</Label>
                                 <Input value={data.github_url} onChange={e => setData('github_url', e.target.value)} />
+                                <Label>Live URL</Label>
+                                <Input value={data.live_url} onChange={e => setData('live_url', e.target.value)} />
                             </CardContent>
                         </Card>
 
