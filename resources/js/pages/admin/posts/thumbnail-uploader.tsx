@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { UploadCloud, X, ImageIcon, Loader2, Trash2 } from "lucide-react";
+import { UploadCloud, Loader2, Trash2 } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
 

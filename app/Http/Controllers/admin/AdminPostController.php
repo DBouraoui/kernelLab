@@ -145,8 +145,6 @@ class AdminPostController extends Controller
     {
         $url = $request->url;
 
-        // On extrait le chemin après '/storage/'
-        // Exemple: /storage/thumbnails/abc.jpg -> thumbnails/abc.jpg
         $path = Str::after($url, '/storage/');
 
         if (Storage::disk('public')->exists($path)) {

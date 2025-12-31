@@ -27,6 +27,7 @@ import {
 import MarkdownEditor from '@/pages/admin/posts/markdown-editor';
 import { ArticleSchema } from '@/types/zod-schemas';
 import ThumbnailUploader from '@/pages/admin/posts/thumbnail-uploader';
+import admin from '@/routes/admin';
 
 export default function Create() {
     const [isLoading, setIsLoading] = useState(false);
@@ -88,7 +89,7 @@ export default function Create() {
                             </div>
                             <div className="flex items-center gap-3 w-full sm:w-auto">
                                 <Button variant="ghost" asChild className="hidden sm:flex">
-                                    <Link href="/dashboard/posts">Annuler</Link>
+                                    <Link href={admin.post.list()}>Annuler</Link>
                                 </Button>
                                 <Button type="submit" className="flex-1 sm:flex-none shadow-lg shadow-primary/20" disabled={isLoading}>
                                     {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Send className="mr-2 h-4 w-4" />}
@@ -219,7 +220,7 @@ export default function Create() {
                                         <CardContent>
                                             <FormField
                                                 control={form.control}
-                                                name="thumbnail" // Assure-toi que c'est "thumbnail" dans ton schéma Zod
+                                                name="thumbnail"
                                                 render={({ field }) => (
                                                     <FormItem>
                                                         <FormControl>
