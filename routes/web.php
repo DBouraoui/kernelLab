@@ -24,7 +24,7 @@ Route::controller(ContactController::class)->group(function () {
 // --- Routes Protégées (Auth) ---
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     // Groupe spécifique pour les Posts avec préfixe d'URL et de Nom
     Route::prefix('dashboard')->group(function () {

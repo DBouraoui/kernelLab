@@ -1,7 +1,6 @@
 import { Head, router, Link } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import type { BreadcrumbItem } from '@/types';
-import { dashboard } from '@/routes';
 import { useForm } from 'react-hook-form';
 import { Form, FormField, FormControl, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -12,7 +11,7 @@ import { useState } from 'react';
 import TagsSelector from '@/pages/admin/posts/tags-selector';
 import { toast } from 'sonner';
 import 'highlight.js/styles/atom-one-dark.css';
-import PictureUploader from '@/pages/admin/posts/Picture-uploader';
+import PictureUploader from '@/pages/admin/posts/picture-uploader';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import {
@@ -33,9 +32,9 @@ export default function Create() {
     const [isLoading, setIsLoading] = useState(false);
 
     const breadcrumbs: BreadcrumbItem[] = [
-        { title: 'Dashboard', href: dashboard().url },
-        { title: 'Articles', href: '/dashboard/posts' },
-        { title: 'Nouvel Article', href: '#' },
+        { title: 'Dashboard', href: admin.dashboard().url },
+        { title: 'Articles', href: admin.post.list().url },
+        { title: 'Nouvel Article', href: admin.post.create().url },
     ];
 
     const form = useForm<z.infer<typeof ArticleSchema>>({

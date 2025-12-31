@@ -1,7 +1,6 @@
 import { Head, router } from '@inertiajs/react'
 import AppLayout from '@/layouts/app-layout'
 import type { BreadcrumbItem, ContactType } from '@/types'
-import { dashboard } from '@/routes'
 import admin from '@/routes/admin'
 import {
     Table,
@@ -35,7 +34,7 @@ import ViewContact from '@/pages/admin/contact/view-contact'
 
 export default function Contact({ contacts }: { contacts: ContactType[] }) {
     const breadcrumbs: BreadcrumbItem[] = [
-        { title: 'Dashboard', href: dashboard().url },
+        { title: 'Dashboard', href: admin.dashboard().url },
         { title: 'Mes contacts', href: admin.contact().url },
     ]
 

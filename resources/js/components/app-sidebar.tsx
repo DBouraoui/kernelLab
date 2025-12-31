@@ -10,18 +10,16 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { contact, dashboard, home } from '@/routes';
+import { home } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import {
     BookOpen,
     ContactIcon,
-    EyeIcon,
     Folder,
     GitForkIcon,
     LayoutGrid,
     Newspaper,
-    StickyNote,
 } from 'lucide-react';
 import AppLogo from './app-logo';
 import admin from '@/routes/admin';
@@ -29,7 +27,7 @@ import admin from '@/routes/admin';
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
-        href: dashboard(),
+        href: admin.dashboard(),
         icon: LayoutGrid,
     },
     {
@@ -70,7 +68,7 @@ export function AppSidebar() {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
-                            <Link href={dashboard()} prefetch>
+                            <Link href={admin.dashboard()} prefetch>
                                 <AppLogo />
                             </Link>
                         </SidebarMenuButton>

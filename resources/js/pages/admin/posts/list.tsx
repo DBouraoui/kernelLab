@@ -12,8 +12,8 @@ import admin from '@/routes/admin';
 export default function Index({ posts }: { posts: any[] }) {
 
     const breadcrumbs = [
-        { title: 'Dashboard', href: '/dashboard' },
-        { title: 'Articles', href: '/dashboard/posts' },
+        { title: 'Dashboard', href: admin.dashboard.url() },
+        { title: 'Articles', href: admin.post.list().url },
     ];
 
     return (
@@ -28,8 +28,8 @@ export default function Index({ posts }: { posts: any[] }) {
                         <h1 className="text-3xl font-bold tracking-tight">Articles</h1>
                         <p className="text-muted-foreground">Gérez vos publications et le contenu de votre blog.</p>
                     </div>
-                    <Button asChild className="rounded-xl shadow-lg shadow-primary/20 bg-blue-600 hover:bg-blue-700">
-                        <Link href={admin.post.create()}>
+                    <Button asChild className="rounded-xl ">
+                        <Link href={admin.post.create()} prefetch>
                             <Plus className="mr-2 h-4 w-4" /> Nouvel Article
                         </Link>
                     </Button>
@@ -72,8 +72,18 @@ export default function Index({ posts }: { posts: any[] }) {
                                         </div>
                                     )}
                                     <div className="absolute top-2 right-2 flex gap-2">
-                                        <Badge className={`${post.status === 'published' ? 'bg-green-500' : 'bg-yellow-500'} border-none`}>
-                                            {post.status === 'published' ? 'Public' : 'Brouillon'}
+                                        <Badge
+                                            className={`${
+                                                post.status === 'published'
+                                                    ? 'bg-green-500'
+                                                    : post.status === 'archived'
+                                                        ? 'bg-red-500'
+                                                        : 'bg-yellow-500'
+                                            } border-none text-white`}
+                                        >
+                                            {post.status === 'published' && 'Public'}
+                                            {post.status === 'draft' && 'Brouillon'}
+                                            {post.status === 'archived' && 'Archivé'}
                                         </Badge>
                                     </div>
                                 </div>
@@ -128,7 +138,7 @@ export default function Index({ posts }: { posts: any[] }) {
                                         {new Date(post.created_at).toLocaleDateString('fr-FR')}
                                     </div>
                                     <div className="mt-3 font-medium">
-                                        {post.reading_time || '5 min'} read
+                                        {post.reading_time || '5 min'} min
                                     </div>
                                 </CardFooter>
                             </Card>
