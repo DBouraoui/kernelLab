@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AdminContactController;
 use App\Http\Controllers\admin\AdminPostController;
 use App\Http\Controllers\admin\AdminProjectController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
@@ -11,8 +12,11 @@ use Illuminate\Support\Facades\Route;
 // --- Routes Publiques (Guest) ---
 Route::controller(GuestController::class)->group(function () {
     Route::get('/', 'home')->name('home');
-    Route::get('/blog', 'blog')->name('blog');
     Route::get('/about', 'about')->name('about');
+});
+
+Route::controller(BlogController::class)->group(function () {
+    Route::get('/blog', 'index')->name('blog');
 });
 
 // --- Routes Contact ---

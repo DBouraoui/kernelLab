@@ -91,7 +91,7 @@ export default function Edit({ post }: { post: Post }) {
                                         render={({ field }) => (
                                             <FormItem>
                                                 <FormControl>
-                                                    <Input className="text-4xl font-black border-none bg-transparent shadow-none focus-visible:ring-0 p-0 h-auto" {...field} />
+                                                    <Input className="text-2xl md:text-3xl  font-black border-none bg-transparent shadow-none focus-visible:ring-0 p-0 h-auto" {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>

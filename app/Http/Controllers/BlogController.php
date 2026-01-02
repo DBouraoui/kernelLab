@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Post;
+use Inertia\Inertia;
+
+class BlogController extends Controller
+{
+    public function index() {
+        // Articles publiés (visibles normalement)
+        $posts = Post::where('status', 'published')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        // Articles en brouillon (pour la section "En cours")
+        $comingSoon = Post::where('status', 'draft')
+            ->orderBy('updated_at', 'desc')
+            ->take(3) // On en montre juste quelques-uns
+            ->get();
+
+        $allTags = Post::where('status', 'published')
+            ->pluck('tags')
+            ->flatten()
+            ->unique()
+            ->values()
+            ->all();
+
+        return Inertia::render('blog/index', [
+            'posts' => $posts,
+            'comingSoon' => $comingSoon,
+            'allTags' => $allTags,
+        ]);
+        //todo faire un flux rss pour les articles
+    }
+}

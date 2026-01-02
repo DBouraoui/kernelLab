@@ -109,7 +109,7 @@ export default function Create() {
                                             <FormItem>
                                                 <FormControl>
                                                     <Input
-                                                        className="text-4xl md:text-5xl font-black border-none bg-transparent shadow-none focus-visible:ring-0 p-0 h-auto placeholder:text-muted-foreground/30"
+                                                        className="text-2xl md:text-3xl font-black border-none bg-transparent shadow-none focus-visible:ring-0 p-0 h-auto placeholder:text-muted-foreground/30"
                                                         placeholder="Titre de l'article..."
                                                         {...field}
                                                     />
