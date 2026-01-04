@@ -10,28 +10,34 @@ services:
 
   database:
     container_name: kernellab-database
+    env_file:
+      - ".env"
     restart: always
     image: mysql:8.0
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
-      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_DATABASE}
     volumes:
-      - ".:/etc/mysql/conf.d"
+      - "./database/mysql-init:/docker-entrypoint-initdb.d"
+
 
   phpmyadmin:
     container_name: kernellab-phpmyadmin
+    env_file:
+      - ".env"
     restart: always
     image: phpmyadmin
     ports:
       - "8080:80"
     environment:
-      - PMA_USER=user
-      - PMA_PASSWORD=password
-      - PMA_HOST=database
-      - PMA_PORT=3306
+      - PMA_USER=${DB_USERNAME}
+      - PMA_PASSWORD=${DB_PASSWORD}
+      - PMA_HOST=${DB_HOST}
+      - PMA_PORT=${DB_PORT}
 
 volumes:
   caddy_data:
