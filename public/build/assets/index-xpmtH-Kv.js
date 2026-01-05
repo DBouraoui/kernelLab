@@ -1,0 +1,1 @@
+import{b as s,f as u}from"./app-B500IPTM.js";import{u as e}from"./index-DaaU8W9d.js";var f=u[" useId ".trim().toString()]||(()=>{}),i=0;function d(t){const[r,o]=s.useState(f());return e(()=>{o(a=>a??String(i++))},[t]),t||(r?`radix-${r}`:"")}export{d as u};
