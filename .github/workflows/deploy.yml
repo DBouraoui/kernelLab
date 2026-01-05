@@ -21,6 +21,7 @@ jobs:
           source: "."
           target: "/root/mon-app"
 
+
       - name: Build et Deploy sur le VPS via SSH
         uses: appleboy/ssh-action@master
         with:
