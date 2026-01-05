@@ -26,3 +26,6 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+networks:
+      traefik-public:
+        external: true
