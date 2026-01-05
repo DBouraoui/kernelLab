@@ -1,7 +1,10 @@
 services:
   app:
     container_name: kernallab
-    image: ghcr.io/${GITHUB_NAME}/${REPO_NAME}:latest
+    build: .
+    image: kernellab-app:local
+    networks:
+      - traefik-public
     ports:
       - "80:80"
     volumes:
