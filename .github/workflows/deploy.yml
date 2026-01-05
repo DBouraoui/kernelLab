@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /root/mon-app
+            cd ~/mon-app
             # On build l'image localement sur le VPS
             docker compose -f compose.prod.yml build
             # On déploie la stack
