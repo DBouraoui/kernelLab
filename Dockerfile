@@ -44,20 +44,14 @@ RUN cp .env.example .env && \
 FROM dunglas/frankenphp
 
 RUN install-php-extensions \
+    pcntl \
     pdo_mysql \
     intl \
     zip \
     opcache \
     gd \
     bcmath \
-    pcntl
 
-ENV SERVER_NAME=:80
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
-
-WORKDIR /app
-
-# On copie le code source propre
 COPY . /app
 
 # On récupère les dossiers cruciaux du builder
@@ -71,3 +65,5 @@ RUN mkdir -p storage/framework/sessions storage/framework/views storage/framewor
 
 # Nettoyage pour la prod
 RUN php artisan config:cache && php artisan route:cache
+
+ENTRYPOINT ["php", "artisan", "octane:frankenphp"]

@@ -1,19 +1,17 @@
 services:
   app:
-    build: .
-    image: kernellab-app:local
+    image: kernellab-app
+    entrypoint: php artisan octane:frankenphp --workers=1 --max-requests=1
     networks:
-      - traefik-public
+      - public
     volumes:
-      - caddy_data:/data
-      - caddy_config:/config
+      - .:/app
     deploy:
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.monapp.rule=Host(`myrocket.fr`)"
         - "traefik.http.routers.monapp.entrypoints=websecure"
-        - "traefik.http.routers.monapp.tls.certresolver=myresolver"
-        - "traefik.http.services.monapp.loadbalancer.server.port=80"
+        - "traefik.http.services.monapp.loadbalancer.server.port=:80"
       mode: replicated
       replicas: 2
       update_config:
@@ -24,5 +22,5 @@ volumes:
   caddy_data:
   caddy_config:
 networks:
-      traefik-public:
+      public:
         external: true

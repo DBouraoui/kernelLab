@@ -6,3 +6,7 @@ storage/*.key
 .env
 .env.*
 tests
+
+**/caddy
+frankenphp
+frankenphp-worker.php
