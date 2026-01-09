@@ -7,6 +7,8 @@ services:
       - APP_DEBUG=true
     networks:
       - internal
+    volumes:
+      - /home/ubuntu/mon-app/.env:/app/.env
     deploy:
       replicas: 1
       restart_policy:
