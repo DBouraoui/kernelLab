@@ -20,11 +20,11 @@ services:
       labels:
         - "traefik.enable=true"
 
-        - "traefik.http.routers.kernallab.rule=Host(`myrocket.fr`)"
-        - "traefik.http.routers.kernallab.entrypoints=websecure"
+        - "traefik.http.routers.kernellab.rule=Host(`myrocket.fr`)"
+        - "traefik.http.routers.kernellab.entrypoints=websecure"
         - "traefik.http.routers.kernellab.tls.certresolver=myresolver"
-        - "traefik.http.routers.kernallab.service=kernallab-svc"
-        - "traefik.http.services.kernallab-svc.loadbalancer.server.port=80"
+        - "traefik.http.routers.kernellab.service=kernallab-svc"
+        - "traefik.http.services.kernellab-svc.loadbalancer.server.port=80"
       replicas: 1
 
 networks:
