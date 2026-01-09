@@ -1,12 +1,27 @@
 services:
   app:
-    container_name: kernallab
+    container_name: kernallab-app
     build: .
-    ports:
-      - "80:80"
     volumes:
-      - caddy_data:/data
-      - caddy_config:/config
+      - ./:/app
+      - /app/vendor
+      - /app/node_modules
+    environment:
+      - APP_DEBUG=true
+    depends_on:
+      - database
+
+    # Le serveur Web
+  web:
+      image: caddy:latest
+      container_name: kernallab-web
+      ports:
+        - "80:80"
+      volumes:
+        - ./:/app
+        - ./caddy/dev/Caddyfile:/etc/caddy/Caddyfile
+      depends_on:
+        - app
 
   database:
     container_name: kernellab-database

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::index
-* @see app/Http/Controllers/admin/AdminContactController.php:13
+* @see Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::index
-* @see app/Http/Controllers/admin/AdminContactController.php:13
+* @see Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::index
-* @see app/Http/Controllers/admin/AdminContactController.php:13
+* @see Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::index
-* @see app/Http/Controllers/admin/AdminContactController.php:13
+* @see Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::index
-* @see app/Http/Controllers/admin/AdminContactController.php:13
+* @see Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::index
-* @see app/Http/Controllers/admin/AdminContactController.php:13
+* @see Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::index
-* @see app/Http/Controllers/admin/AdminContactController.php:13
+* @see Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +82,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::destroy
-* @see app/Http/Controllers/admin/AdminContactController.php:20
+* @see Http/Controllers/admin/AdminContactController.php:20
 * @route '/dashboard/contact/{id}'
 */
 export const destroy = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -97,7 +97,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::destroy
-* @see app/Http/Controllers/admin/AdminContactController.php:20
+* @see Http/Controllers/admin/AdminContactController.php:20
 * @route '/dashboard/contact/{id}'
 */
 destroy.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -124,7 +124,7 @@ destroy.url = (args: { id: string | number } | [id: string | number ] | string |
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::destroy
-* @see app/Http/Controllers/admin/AdminContactController.php:20
+* @see Http/Controllers/admin/AdminContactController.php:20
 * @route '/dashboard/contact/{id}'
 */
 destroy.delete = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -134,7 +134,7 @@ destroy.delete = (args: { id: string | number } | [id: string | number ] | strin
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::destroy
-* @see app/Http/Controllers/admin/AdminContactController.php:20
+* @see Http/Controllers/admin/AdminContactController.php:20
 * @route '/dashboard/contact/{id}'
 */
 const destroyForm = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -149,7 +149,7 @@ const destroyForm = (args: { id: string | number } | [id: string | number ] | st
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::destroy
-* @see app/Http/Controllers/admin/AdminContactController.php:20
+* @see Http/Controllers/admin/AdminContactController.php:20
 * @route '/dashboard/contact/{id}'
 */
 destroyForm.delete = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

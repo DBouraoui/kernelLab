@@ -30,7 +30,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ~/mon-app
-            # On build l'image localement sur le VPS
-            docker compose -f compose.prod.yml build
             # On déploie la stack
-            docker stack deploy -c compose.prod.yml kernallab --with-registry-auth
+            docker stack deploy -c compose.prod.yml monapp --with-registry-auth
