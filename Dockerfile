@@ -25,14 +25,29 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     pcntl \
     intl
 
-# 3. Installation de Composer
+# 3. Installation de Composer et Node.js
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# 4. Installation de Node.js (Version stable pour Vite/Inertia)
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs
 
 WORKDIR /app
 
-# Gestion des droits pour Laravel
-RUN chown -R www-data:www-data /app
+# 4. Copie des fichiers de dépendances (pour optimiser le cache Docker)
+COPY composer.json composer.lock package.json package-lock.json ./
+
+# 5. Installation des dépendances PHP et JS
+RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
+RUN npm ci
+
+# 6. Copie du reste du code source
+COPY . .
+
+# 7. Génération de l'autoloader et Build des assets Inertia/Vite
+RUN composer dump-autoload --optimize --no-dev
+RUN npm run build
+
+# 8. Nettoyage des fichiers inutiles pour alléger l'image
+RUN rm -rf node_modules
+
+# 9. Gestion des permissions (Crucial pour Laravel)
+RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
