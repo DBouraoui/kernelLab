@@ -1,6 +1,9 @@
 services:
   app:
     image: dbouraoui/kernallab:latest
+    environment:
+      - APP_KEY=${APP_KEY}
+      - APP_URL=${APP_URL}
     networks:
       - internal
     deploy:
@@ -19,7 +22,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.kernellab.rule=Host(`myrocket.fr`)"
+        - "traefik.http.routers.kernellab.rule=Host(`myrocket.fr`) || Host(`www.myrocket.fr`)"
         - "traefik.http.routers.kernellab.entrypoints=websecure"
         - "traefik.http.routers.kernellab.tls.certresolver=myresolver"
         - "traefik.http.services.kernellab.loadbalancer.server.port=80"
