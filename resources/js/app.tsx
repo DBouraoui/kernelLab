@@ -7,7 +7,7 @@ import { createRoot } from 'react-dom/client';
 import { initializeTheme } from './hooks/use-appearance';
 import { Toaster } from "@/components/ui/sonner"
 import { ThemeProvider } from '@/components/theme-provider';
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || 'Kernellab';
 
 createInertiaApp({
     title: (title) => (title ? `${title} - ${appName}` : appName),

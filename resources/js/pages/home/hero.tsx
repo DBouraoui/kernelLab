@@ -1,4 +1,4 @@
-import { ArrowRight, Github, Linkedin, Terminal, Server, Code2, Cloud, MessageCircle, Send } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Terminal, Server, Code2, Cloud, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from '@inertiajs/react';
 import { blog, contact } from '@/routes';

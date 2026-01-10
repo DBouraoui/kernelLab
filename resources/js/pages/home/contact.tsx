@@ -33,12 +33,12 @@ export function Contact() {
                         </div>
 
                         <div className="flex gap-4 pt-4">
-                            <Button variant="ghost" size="icon" className="rounded-full">
+                            <a href="https://github.com/dbouraoui"  className="hover:text-blue-500 transition-colors flex items-center gap-2 text-sm font-medium">
                                 <Github className="h-5 w-5" />
-                            </Button>
-                            <Button variant="ghost" size="icon" className="rounded-full">
+                            </a>
+                            <a href="https://www.linkedin.com/in/dylan-bouraoui-942039259"  className="hover:text-blue-500 transition-colors flex items-center gap-2 text-sm font-medium">
                                 <Linkedin className="h-5 w-5" />
-                            </Button>
+                            </a>
                         </div>
                     </div>
 

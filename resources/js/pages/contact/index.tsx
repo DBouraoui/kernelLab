@@ -2,10 +2,12 @@ import { Mail, Github, Linkedin, Globe } from "lucide-react"
 import GuestLayout from '@/layouts/guest-layout';
 import { Button } from '@/components/ui/button';
 import ContactForm from '@/pages/contact/contact-form';
+import { Head } from '@inertiajs/react';
 
 export default function ContactPage() {
     return (
         <GuestLayout>
+            <Head title="Contact"  />
             <div className="min-h-[calc(100vh-64px)] bg-background">
                 <div className="container px-4 py-16 md:py-24">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
@@ -46,10 +48,10 @@ export default function ContactPage() {
 
                             <div className="flex gap-4">
                                 <Button variant="outline" className="flex-1 rounded-2xl gap-2 h-12" asChild>
-                                    <a href="#"><Github className="h-5 w-5" /> GitHub</a>
+                                    <a href="https://github.com/dbouraoui"><Github className="h-5 w-5" /> GitHub</a>
                                 </Button>
                                 <Button variant="outline" className="flex-1 rounded-2xl gap-2 h-12" asChild>
-                                    <a href="#"><Linkedin className="h-5 w-5" /> LinkedIn</a>
+                                    <a href="https://www.linkedin.com/in/dylan-bouraoui-942039259"><Linkedin className="h-5 w-5" /> LinkedIn</a>
                                 </Button>
                             </div>
                         </div>

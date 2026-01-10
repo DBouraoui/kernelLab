@@ -1,5 +1,6 @@
 import { CheckCircle2, Server, Container, Terminal, Code } from "lucide-react"
 import GuestLayout from '@/layouts/guest-layout';
+import { Head } from '@inertiajs/react';
 
 export const metadata = {
     title: 'À Propos | Expert Backend Symfony & DevOps Cloud',
@@ -9,6 +10,7 @@ export const metadata = {
 export default function AboutPage() {
     return (
         <GuestLayout>
+            <Head title="A propos"  />
             <div className="bg-background">
                 <div className="container px-4 py-16 md:py-32">
 

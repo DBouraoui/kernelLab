@@ -10,6 +10,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 // --- Routes Publiques (Guest) ---
 Route::controller(GuestController::class)->group(function () {
@@ -78,6 +79,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::patch('/project/{id}/toggle-featured', 'toggleFeatured')->name('admin.project.toggleFeatured');
         });
     });
+});
+
+Route::fallback(function () {
+    return Inertia::render('errors/notFound');
 });
 
 require __DIR__.'/settings.php';

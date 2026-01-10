@@ -1,4 +1,4 @@
-import {  Github, Linkedin, Twitter, Terminal } from "lucide-react"
+import {  Github, Linkedin, Terminal } from "lucide-react"
 import { Link } from '@inertiajs/react';
 import { about, blog, contact, home, newsletter } from '@/routes';
 
@@ -6,9 +6,9 @@ export function Footer() {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="border-t bg-background/50 backdrop-blur-sm">
-            <div className="container px-4 py-12">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+        <footer className="border-t bg-background/50 backdrop-blur-sm w-screen">
+            <div className="px-6 py-12 w-full">
+                <div className="flex flex-col md:flex-row w-full justify-between items-center gap-8">
 
                     {/* --- BRANDING --- */}
                     <div className="flex flex-col items-center md:items-start gap-2">
@@ -36,17 +36,13 @@ export function Footer() {
 
                     {/* --- SOCIALS --- */}
                     <div className="flex items-center gap-4">
-                        <Link href="#" className="p-2 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-foreground">
+                        <Link href="https://github.com/dbouraoui" className="p-2 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-foreground">
                             <Github className="h-5 w-5" />
                             <span className="sr-only">GitHub</span>
                         </Link>
-                        <Link href="#" className="p-2 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-foreground">
+                        <Link href="https://www.linkedin.com/in/dylan-bouraoui-942039259" className="p-2 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-foreground">
                             <Linkedin className="h-5 w-5" />
                             <span className="sr-only">aedIn</span>
-                        </Link>
-                        <Link href="#" className="p-2 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-foreground">
-                            <Twitter className="h-5 w-5" />
-                            <span className="sr-only">Twitter</span>
                         </Link>
                     </div>
                 </div>
