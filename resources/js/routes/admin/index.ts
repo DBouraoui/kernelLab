@@ -5,7 +5,7 @@ import newsletterC9f74d from './newsletter'
 import project from './project'
 /**
 * @see \App\Http\Controllers\admin\DashboardController::dashboard
-* @see Http/Controllers/admin/DashboardController.php:14
+* @see app/Http/Controllers/admin/DashboardController.php:14
 * @route '/dashboard'
 */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -20,7 +20,7 @@ dashboard.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\DashboardController::dashboard
-* @see Http/Controllers/admin/DashboardController.php:14
+* @see app/Http/Controllers/admin/DashboardController.php:14
 * @route '/dashboard'
 */
 dashboard.url = (options?: RouteQueryOptions) => {
@@ -29,7 +29,7 @@ dashboard.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\admin\DashboardController::dashboard
-* @see Http/Controllers/admin/DashboardController.php:14
+* @see app/Http/Controllers/admin/DashboardController.php:14
 * @route '/dashboard'
 */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -39,7 +39,7 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\DashboardController::dashboard
-* @see Http/Controllers/admin/DashboardController.php:14
+* @see app/Http/Controllers/admin/DashboardController.php:14
 * @route '/dashboard'
 */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -49,7 +49,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\DashboardController::dashboard
-* @see Http/Controllers/admin/DashboardController.php:14
+* @see app/Http/Controllers/admin/DashboardController.php:14
 * @route '/dashboard'
 */
 const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -59,7 +59,7 @@ const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 
 /**
 * @see \App\Http\Controllers\admin\DashboardController::dashboard
-* @see Http/Controllers/admin/DashboardController.php:14
+* @see app/Http/Controllers/admin/DashboardController.php:14
 * @route '/dashboard'
 */
 dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -69,7 +69,7 @@ dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \App\Http\Controllers\admin\DashboardController::dashboard
-* @see Http/Controllers/admin/DashboardController.php:14
+* @see app/Http/Controllers/admin/DashboardController.php:14
 * @route '/dashboard'
 */
 dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -86,7 +86,7 @@ dashboard.form = dashboardForm
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::contact
-* @see Http/Controllers/admin/AdminContactController.php:13
+* @see app/Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 export const contact = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -101,7 +101,7 @@ contact.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::contact
-* @see Http/Controllers/admin/AdminContactController.php:13
+* @see app/Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 contact.url = (options?: RouteQueryOptions) => {
@@ -110,7 +110,7 @@ contact.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::contact
-* @see Http/Controllers/admin/AdminContactController.php:13
+* @see app/Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 contact.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -120,7 +120,7 @@ contact.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::contact
-* @see Http/Controllers/admin/AdminContactController.php:13
+* @see app/Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 contact.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -130,7 +130,7 @@ contact.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::contact
-* @see Http/Controllers/admin/AdminContactController.php:13
+* @see app/Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 const contactForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -140,7 +140,7 @@ const contactForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::contact
-* @see Http/Controllers/admin/AdminContactController.php:13
+* @see app/Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 contactForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -150,7 +150,7 @@ contactForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\admin\AdminContactController::contact
-* @see Http/Controllers/admin/AdminContactController.php:13
+* @see app/Http/Controllers/admin/AdminContactController.php:13
 * @route '/dashboard/contact'
 */
 contactForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -167,7 +167,7 @@ contact.form = contactForm
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::newsletter
-* @see Http/Controllers/admin/AdminNewsletterController.php:13
+* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 export const newsletter = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -182,7 +182,7 @@ newsletter.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::newsletter
-* @see Http/Controllers/admin/AdminNewsletterController.php:13
+* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 newsletter.url = (options?: RouteQueryOptions) => {
@@ -191,7 +191,7 @@ newsletter.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::newsletter
-* @see Http/Controllers/admin/AdminNewsletterController.php:13
+* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 newsletter.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -201,7 +201,7 @@ newsletter.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::newsletter
-* @see Http/Controllers/admin/AdminNewsletterController.php:13
+* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 newsletter.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -211,7 +211,7 @@ newsletter.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::newsletter
-* @see Http/Controllers/admin/AdminNewsletterController.php:13
+* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 const newsletterForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -221,7 +221,7 @@ const newsletterForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::newsletter
-* @see Http/Controllers/admin/AdminNewsletterController.php:13
+* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 newsletterForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -231,7 +231,7 @@ newsletterForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::newsletter
-* @see Http/Controllers/admin/AdminNewsletterController.php:13
+* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 newsletterForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

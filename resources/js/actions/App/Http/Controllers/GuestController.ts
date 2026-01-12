@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see Http/Controllers/GuestController.php:10
+* @see app/Http/Controllers/GuestController.php:10
 * @route '/'
 */
 export const home = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ home.definition = {
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see Http/Controllers/GuestController.php:10
+* @see app/Http/Controllers/GuestController.php:10
 * @route '/'
 */
 home.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ home.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see Http/Controllers/GuestController.php:10
+* @see app/Http/Controllers/GuestController.php:10
 * @route '/'
 */
 home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see Http/Controllers/GuestController.php:10
+* @see app/Http/Controllers/GuestController.php:10
 * @route '/'
 */
 home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see Http/Controllers/GuestController.php:10
+* @see app/Http/Controllers/GuestController.php:10
 * @route '/'
 */
 const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see Http/Controllers/GuestController.php:10
+* @see app/Http/Controllers/GuestController.php:10
 * @route '/'
 */
 homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see Http/Controllers/GuestController.php:10
+* @see app/Http/Controllers/GuestController.php:10
 * @route '/'
 */
 homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +82,7 @@ home.form = homeForm
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see Http/Controllers/GuestController.php:22
+* @see app/Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 export const about = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -97,7 +97,7 @@ about.definition = {
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see Http/Controllers/GuestController.php:22
+* @see app/Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 about.url = (options?: RouteQueryOptions) => {
@@ -106,7 +106,7 @@ about.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see Http/Controllers/GuestController.php:22
+* @see app/Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 about.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -116,7 +116,7 @@ about.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see Http/Controllers/GuestController.php:22
+* @see app/Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 about.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -126,7 +126,7 @@ about.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see Http/Controllers/GuestController.php:22
+* @see app/Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 const aboutForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -136,7 +136,7 @@ const aboutForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see Http/Controllers/GuestController.php:22
+* @see app/Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 aboutForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -146,7 +146,7 @@ aboutForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see Http/Controllers/GuestController.php:22
+* @see app/Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 aboutForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
