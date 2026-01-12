@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::index
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
+* @see Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::index
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
+* @see Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::index
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
+* @see Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::index
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
+* @see Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::index
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
+* @see Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::index
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
+* @see Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::index
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:13
+* @see Http/Controllers/admin/AdminNewsletterController.php:13
 * @route '/dashboard/newsletter'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +82,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::exportMethod
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:44
+* @see Http/Controllers/admin/AdminNewsletterController.php:44
 * @route '/dashboard/newsletter/export'
 */
 export const exportMethod = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -97,7 +97,7 @@ exportMethod.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::exportMethod
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:44
+* @see Http/Controllers/admin/AdminNewsletterController.php:44
 * @route '/dashboard/newsletter/export'
 */
 exportMethod.url = (options?: RouteQueryOptions) => {
@@ -106,7 +106,7 @@ exportMethod.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::exportMethod
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:44
+* @see Http/Controllers/admin/AdminNewsletterController.php:44
 * @route '/dashboard/newsletter/export'
 */
 exportMethod.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -116,7 +116,7 @@ exportMethod.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::exportMethod
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:44
+* @see Http/Controllers/admin/AdminNewsletterController.php:44
 * @route '/dashboard/newsletter/export'
 */
 exportMethod.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -126,7 +126,7 @@ exportMethod.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::exportMethod
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:44
+* @see Http/Controllers/admin/AdminNewsletterController.php:44
 * @route '/dashboard/newsletter/export'
 */
 const exportMethodForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -136,7 +136,7 @@ const exportMethodForm = (options?: RouteQueryOptions): RouteFormDefinition<'get
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::exportMethod
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:44
+* @see Http/Controllers/admin/AdminNewsletterController.php:44
 * @route '/dashboard/newsletter/export'
 */
 exportMethodForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -146,7 +146,7 @@ exportMethodForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::exportMethod
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:44
+* @see Http/Controllers/admin/AdminNewsletterController.php:44
 * @route '/dashboard/newsletter/export'
 */
 exportMethodForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -163,7 +163,7 @@ exportMethod.form = exportMethodForm
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::toggleActive
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:33
+* @see Http/Controllers/admin/AdminNewsletterController.php:33
 * @route '/dashboard/newsletter/{id}'
 */
 export const toggleActive = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -178,7 +178,7 @@ toggleActive.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::toggleActive
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:33
+* @see Http/Controllers/admin/AdminNewsletterController.php:33
 * @route '/dashboard/newsletter/{id}'
 */
 toggleActive.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -205,7 +205,7 @@ toggleActive.url = (args: { id: string | number } | [id: string | number ] | str
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::toggleActive
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:33
+* @see Http/Controllers/admin/AdminNewsletterController.php:33
 * @route '/dashboard/newsletter/{id}'
 */
 toggleActive.patch = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -215,7 +215,7 @@ toggleActive.patch = (args: { id: string | number } | [id: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::toggleActive
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:33
+* @see Http/Controllers/admin/AdminNewsletterController.php:33
 * @route '/dashboard/newsletter/{id}'
 */
 const toggleActiveForm = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -230,7 +230,7 @@ const toggleActiveForm = (args: { id: string | number } | [id: string | number ]
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::toggleActive
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:33
+* @see Http/Controllers/admin/AdminNewsletterController.php:33
 * @route '/dashboard/newsletter/{id}'
 */
 toggleActiveForm.patch = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -247,7 +247,7 @@ toggleActive.form = toggleActiveForm
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::destroy
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:26
+* @see Http/Controllers/admin/AdminNewsletterController.php:26
 * @route '/dashboard/newsletter/{id}'
 */
 export const destroy = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -262,7 +262,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::destroy
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:26
+* @see Http/Controllers/admin/AdminNewsletterController.php:26
 * @route '/dashboard/newsletter/{id}'
 */
 destroy.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -289,7 +289,7 @@ destroy.url = (args: { id: string | number } | [id: string | number ] | string |
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::destroy
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:26
+* @see Http/Controllers/admin/AdminNewsletterController.php:26
 * @route '/dashboard/newsletter/{id}'
 */
 destroy.delete = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -299,7 +299,7 @@ destroy.delete = (args: { id: string | number } | [id: string | number ] | strin
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::destroy
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:26
+* @see Http/Controllers/admin/AdminNewsletterController.php:26
 * @route '/dashboard/newsletter/{id}'
 */
 const destroyForm = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -314,7 +314,7 @@ const destroyForm = (args: { id: string | number } | [id: string | number ] | st
 
 /**
 * @see \App\Http\Controllers\admin\AdminNewsletterController::destroy
-* @see app/Http/Controllers/admin/AdminNewsletterController.php:26
+* @see Http/Controllers/admin/AdminNewsletterController.php:26
 * @route '/dashboard/newsletter/{id}'
 */
 destroyForm.delete = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

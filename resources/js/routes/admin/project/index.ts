@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::index
-* @see app/Http/Controllers/admin/AdminProjectController.php:20
+* @see Http/Controllers/admin/AdminProjectController.php:20
 * @route '/dashboard/project'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::index
-* @see app/Http/Controllers/admin/AdminProjectController.php:20
+* @see Http/Controllers/admin/AdminProjectController.php:20
 * @route '/dashboard/project'
 */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::index
-* @see app/Http/Controllers/admin/AdminProjectController.php:20
+* @see Http/Controllers/admin/AdminProjectController.php:20
 * @route '/dashboard/project'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::index
-* @see app/Http/Controllers/admin/AdminProjectController.php:20
+* @see Http/Controllers/admin/AdminProjectController.php:20
 * @route '/dashboard/project'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::index
-* @see app/Http/Controllers/admin/AdminProjectController.php:20
+* @see Http/Controllers/admin/AdminProjectController.php:20
 * @route '/dashboard/project'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::index
-* @see app/Http/Controllers/admin/AdminProjectController.php:20
+* @see Http/Controllers/admin/AdminProjectController.php:20
 * @route '/dashboard/project'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::index
-* @see app/Http/Controllers/admin/AdminProjectController.php:20
+* @see Http/Controllers/admin/AdminProjectController.php:20
 * @route '/dashboard/project'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +82,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::create
-* @see app/Http/Controllers/admin/AdminProjectController.php:30
+* @see Http/Controllers/admin/AdminProjectController.php:30
 * @route '/dashboard/project/add'
 */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -97,7 +97,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::create
-* @see app/Http/Controllers/admin/AdminProjectController.php:30
+* @see Http/Controllers/admin/AdminProjectController.php:30
 * @route '/dashboard/project/add'
 */
 create.url = (options?: RouteQueryOptions) => {
@@ -106,7 +106,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::create
-* @see app/Http/Controllers/admin/AdminProjectController.php:30
+* @see Http/Controllers/admin/AdminProjectController.php:30
 * @route '/dashboard/project/add'
 */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -116,7 +116,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::create
-* @see app/Http/Controllers/admin/AdminProjectController.php:30
+* @see Http/Controllers/admin/AdminProjectController.php:30
 * @route '/dashboard/project/add'
 */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -126,7 +126,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::create
-* @see app/Http/Controllers/admin/AdminProjectController.php:30
+* @see Http/Controllers/admin/AdminProjectController.php:30
 * @route '/dashboard/project/add'
 */
 const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -136,7 +136,7 @@ const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::create
-* @see app/Http/Controllers/admin/AdminProjectController.php:30
+* @see Http/Controllers/admin/AdminProjectController.php:30
 * @route '/dashboard/project/add'
 */
 createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -146,7 +146,7 @@ createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::create
-* @see app/Http/Controllers/admin/AdminProjectController.php:30
+* @see Http/Controllers/admin/AdminProjectController.php:30
 * @route '/dashboard/project/add'
 */
 createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -163,7 +163,7 @@ create.form = createForm
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::edit
-* @see app/Http/Controllers/admin/AdminProjectController.php:83
+* @see Http/Controllers/admin/AdminProjectController.php:83
 * @route '/dashboard/project/{id}/edit'
 */
 export const edit = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -178,7 +178,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::edit
-* @see app/Http/Controllers/admin/AdminProjectController.php:83
+* @see Http/Controllers/admin/AdminProjectController.php:83
 * @route '/dashboard/project/{id}/edit'
 */
 edit.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -205,7 +205,7 @@ edit.url = (args: { id: string | number } | [id: string | number ] | string | nu
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::edit
-* @see app/Http/Controllers/admin/AdminProjectController.php:83
+* @see Http/Controllers/admin/AdminProjectController.php:83
 * @route '/dashboard/project/{id}/edit'
 */
 edit.get = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -215,7 +215,7 @@ edit.get = (args: { id: string | number } | [id: string | number ] | string | nu
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::edit
-* @see app/Http/Controllers/admin/AdminProjectController.php:83
+* @see Http/Controllers/admin/AdminProjectController.php:83
 * @route '/dashboard/project/{id}/edit'
 */
 edit.head = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -225,7 +225,7 @@ edit.head = (args: { id: string | number } | [id: string | number ] | string | n
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::edit
-* @see app/Http/Controllers/admin/AdminProjectController.php:83
+* @see Http/Controllers/admin/AdminProjectController.php:83
 * @route '/dashboard/project/{id}/edit'
 */
 const editForm = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -235,7 +235,7 @@ const editForm = (args: { id: string | number } | [id: string | number ] | strin
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::edit
-* @see app/Http/Controllers/admin/AdminProjectController.php:83
+* @see Http/Controllers/admin/AdminProjectController.php:83
 * @route '/dashboard/project/{id}/edit'
 */
 editForm.get = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -245,7 +245,7 @@ editForm.get = (args: { id: string | number } | [id: string | number ] | string 
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::edit
-* @see app/Http/Controllers/admin/AdminProjectController.php:83
+* @see Http/Controllers/admin/AdminProjectController.php:83
 * @route '/dashboard/project/{id}/edit'
 */
 editForm.head = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -262,7 +262,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::store
-* @see app/Http/Controllers/admin/AdminProjectController.php:38
+* @see Http/Controllers/admin/AdminProjectController.php:38
 * @route '/dashboard/project'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -277,7 +277,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::store
-* @see app/Http/Controllers/admin/AdminProjectController.php:38
+* @see Http/Controllers/admin/AdminProjectController.php:38
 * @route '/dashboard/project'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -286,7 +286,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::store
-* @see app/Http/Controllers/admin/AdminProjectController.php:38
+* @see Http/Controllers/admin/AdminProjectController.php:38
 * @route '/dashboard/project'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -296,7 +296,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::store
-* @see app/Http/Controllers/admin/AdminProjectController.php:38
+* @see Http/Controllers/admin/AdminProjectController.php:38
 * @route '/dashboard/project'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -306,7 +306,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::store
-* @see app/Http/Controllers/admin/AdminProjectController.php:38
+* @see Http/Controllers/admin/AdminProjectController.php:38
 * @route '/dashboard/project'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -318,7 +318,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::update
-* @see app/Http/Controllers/admin/AdminProjectController.php:100
+* @see Http/Controllers/admin/AdminProjectController.php:100
 * @route '/dashboard/project/{id}'
 */
 export const update = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -333,7 +333,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::update
-* @see app/Http/Controllers/admin/AdminProjectController.php:100
+* @see Http/Controllers/admin/AdminProjectController.php:100
 * @route '/dashboard/project/{id}'
 */
 update.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -360,7 +360,7 @@ update.url = (args: { id: string | number } | [id: string | number ] | string | 
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::update
-* @see app/Http/Controllers/admin/AdminProjectController.php:100
+* @see Http/Controllers/admin/AdminProjectController.php:100
 * @route '/dashboard/project/{id}'
 */
 update.put = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -370,7 +370,7 @@ update.put = (args: { id: string | number } | [id: string | number ] | string | 
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::update
-* @see app/Http/Controllers/admin/AdminProjectController.php:100
+* @see Http/Controllers/admin/AdminProjectController.php:100
 * @route '/dashboard/project/{id}'
 */
 const updateForm = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -385,7 +385,7 @@ const updateForm = (args: { id: string | number } | [id: string | number ] | str
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::update
-* @see app/Http/Controllers/admin/AdminProjectController.php:100
+* @see Http/Controllers/admin/AdminProjectController.php:100
 * @route '/dashboard/project/{id}'
 */
 updateForm.put = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -402,7 +402,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::deleteMethod
-* @see app/Http/Controllers/admin/AdminProjectController.php:142
+* @see Http/Controllers/admin/AdminProjectController.php:142
 * @route '/dashboard/project/{id}'
 */
 export const deleteMethod = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -417,7 +417,7 @@ deleteMethod.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::deleteMethod
-* @see app/Http/Controllers/admin/AdminProjectController.php:142
+* @see Http/Controllers/admin/AdminProjectController.php:142
 * @route '/dashboard/project/{id}'
 */
 deleteMethod.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -444,7 +444,7 @@ deleteMethod.url = (args: { id: string | number } | [id: string | number ] | str
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::deleteMethod
-* @see app/Http/Controllers/admin/AdminProjectController.php:142
+* @see Http/Controllers/admin/AdminProjectController.php:142
 * @route '/dashboard/project/{id}'
 */
 deleteMethod.delete = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -454,7 +454,7 @@ deleteMethod.delete = (args: { id: string | number } | [id: string | number ] | 
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::deleteMethod
-* @see app/Http/Controllers/admin/AdminProjectController.php:142
+* @see Http/Controllers/admin/AdminProjectController.php:142
 * @route '/dashboard/project/{id}'
 */
 const deleteMethodForm = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -469,7 +469,7 @@ const deleteMethodForm = (args: { id: string | number } | [id: string | number ]
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::deleteMethod
-* @see app/Http/Controllers/admin/AdminProjectController.php:142
+* @see Http/Controllers/admin/AdminProjectController.php:142
 * @route '/dashboard/project/{id}'
 */
 deleteMethodForm.delete = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -486,7 +486,7 @@ deleteMethod.form = deleteMethodForm
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::toggleFeatured
-* @see app/Http/Controllers/admin/AdminProjectController.php:174
+* @see Http/Controllers/admin/AdminProjectController.php:174
 * @route '/dashboard/project/{id}/toggle-featured'
 */
 export const toggleFeatured = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -501,7 +501,7 @@ toggleFeatured.definition = {
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::toggleFeatured
-* @see app/Http/Controllers/admin/AdminProjectController.php:174
+* @see Http/Controllers/admin/AdminProjectController.php:174
 * @route '/dashboard/project/{id}/toggle-featured'
 */
 toggleFeatured.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -528,7 +528,7 @@ toggleFeatured.url = (args: { id: string | number } | [id: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::toggleFeatured
-* @see app/Http/Controllers/admin/AdminProjectController.php:174
+* @see Http/Controllers/admin/AdminProjectController.php:174
 * @route '/dashboard/project/{id}/toggle-featured'
 */
 toggleFeatured.patch = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -538,7 +538,7 @@ toggleFeatured.patch = (args: { id: string | number } | [id: string | number ] |
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::toggleFeatured
-* @see app/Http/Controllers/admin/AdminProjectController.php:174
+* @see Http/Controllers/admin/AdminProjectController.php:174
 * @route '/dashboard/project/{id}/toggle-featured'
 */
 const toggleFeaturedForm = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -553,7 +553,7 @@ const toggleFeaturedForm = (args: { id: string | number } | [id: string | number
 
 /**
 * @see \App\Http\Controllers\admin\AdminProjectController::toggleFeatured
-* @see app/Http/Controllers/admin/AdminProjectController.php:174
+* @see Http/Controllers/admin/AdminProjectController.php:174
 * @route '/dashboard/project/{id}/toggle-featured'
 */
 toggleFeaturedForm.patch = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

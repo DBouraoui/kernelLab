@@ -17,6 +17,7 @@ import {
     BookOpen,
     ContactIcon,
     GitForkIcon,
+    Image,
     LayoutGrid,
     Mailbox,
     Newspaper,
@@ -49,6 +50,11 @@ const mainNavItems: NavItem[] = [
         title: 'Abonnement newsletter',
         href: admin.newsletter().url,
         icon: Mailbox,
+    },
+    {
+        title: 'Convertisseur images',
+        href: admin.pictures.index().url,
+        icon: Image,
     }
 
 ];

@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libfreetype6-dev \
     libzip-dev \
+    libwebp-dev \
     libicu-dev \
     zip \
     unzip \
@@ -16,6 +17,7 @@ RUN apt-get update && apt-get install -y \
 # 2. Configuration et installation des extensions PHP
 # On configure GD puis on installe tout d'un coup
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    --with-webp \
     && docker-php-ext-configure intl \
     && docker-php-ext-install \
     pdo_mysql \

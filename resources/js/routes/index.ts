@@ -219,7 +219,7 @@ register.form = registerForm
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see app/Http/Controllers/GuestController.php:10
+* @see Http/Controllers/GuestController.php:10
 * @route '/'
 */
 export const home = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -234,7 +234,7 @@ home.definition = {
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see app/Http/Controllers/GuestController.php:10
+* @see Http/Controllers/GuestController.php:10
 * @route '/'
 */
 home.url = (options?: RouteQueryOptions) => {
@@ -243,7 +243,7 @@ home.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see app/Http/Controllers/GuestController.php:10
+* @see Http/Controllers/GuestController.php:10
 * @route '/'
 */
 home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -253,7 +253,7 @@ home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see app/Http/Controllers/GuestController.php:10
+* @see Http/Controllers/GuestController.php:10
 * @route '/'
 */
 home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -263,7 +263,7 @@ home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see app/Http/Controllers/GuestController.php:10
+* @see Http/Controllers/GuestController.php:10
 * @route '/'
 */
 const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -273,7 +273,7 @@ const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see app/Http/Controllers/GuestController.php:10
+* @see Http/Controllers/GuestController.php:10
 * @route '/'
 */
 homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -283,7 +283,7 @@ homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::home
-* @see app/Http/Controllers/GuestController.php:10
+* @see Http/Controllers/GuestController.php:10
 * @route '/'
 */
 homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -300,7 +300,7 @@ home.form = homeForm
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see app/Http/Controllers/GuestController.php:22
+* @see Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 export const about = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -315,7 +315,7 @@ about.definition = {
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see app/Http/Controllers/GuestController.php:22
+* @see Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 about.url = (options?: RouteQueryOptions) => {
@@ -324,7 +324,7 @@ about.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see app/Http/Controllers/GuestController.php:22
+* @see Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 about.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -334,7 +334,7 @@ about.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see app/Http/Controllers/GuestController.php:22
+* @see Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 about.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -344,7 +344,7 @@ about.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see app/Http/Controllers/GuestController.php:22
+* @see Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 const aboutForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -354,7 +354,7 @@ const aboutForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see app/Http/Controllers/GuestController.php:22
+* @see Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 aboutForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -364,7 +364,7 @@ aboutForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestController::about
-* @see app/Http/Controllers/GuestController.php:22
+* @see Http/Controllers/GuestController.php:22
 * @route '/about'
 */
 aboutForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -381,7 +381,7 @@ about.form = aboutForm
 
 /**
 * @see \App\Http\Controllers\BlogController::blog
-* @see app/Http/Controllers/BlogController.php:10
+* @see Http/Controllers/BlogController.php:10
 * @route '/blog'
 */
 export const blog = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -396,7 +396,7 @@ blog.definition = {
 
 /**
 * @see \App\Http\Controllers\BlogController::blog
-* @see app/Http/Controllers/BlogController.php:10
+* @see Http/Controllers/BlogController.php:10
 * @route '/blog'
 */
 blog.url = (options?: RouteQueryOptions) => {
@@ -405,7 +405,7 @@ blog.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\BlogController::blog
-* @see app/Http/Controllers/BlogController.php:10
+* @see Http/Controllers/BlogController.php:10
 * @route '/blog'
 */
 blog.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -415,7 +415,7 @@ blog.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\BlogController::blog
-* @see app/Http/Controllers/BlogController.php:10
+* @see Http/Controllers/BlogController.php:10
 * @route '/blog'
 */
 blog.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -425,7 +425,7 @@ blog.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\BlogController::blog
-* @see app/Http/Controllers/BlogController.php:10
+* @see Http/Controllers/BlogController.php:10
 * @route '/blog'
 */
 const blogForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -435,7 +435,7 @@ const blogForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\BlogController::blog
-* @see app/Http/Controllers/BlogController.php:10
+* @see Http/Controllers/BlogController.php:10
 * @route '/blog'
 */
 blogForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -445,7 +445,7 @@ blogForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\BlogController::blog
-* @see app/Http/Controllers/BlogController.php:10
+* @see Http/Controllers/BlogController.php:10
 * @route '/blog'
 */
 blogForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -462,7 +462,7 @@ blog.form = blogForm
 
 /**
 * @see \App\Http\Controllers\ContactController::contact
-* @see app/Http/Controllers/ContactController.php:14
+* @see Http/Controllers/ContactController.php:14
 * @route '/contact'
 */
 export const contact = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -477,7 +477,7 @@ contact.definition = {
 
 /**
 * @see \App\Http\Controllers\ContactController::contact
-* @see app/Http/Controllers/ContactController.php:14
+* @see Http/Controllers/ContactController.php:14
 * @route '/contact'
 */
 contact.url = (options?: RouteQueryOptions) => {
@@ -486,7 +486,7 @@ contact.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ContactController::contact
-* @see app/Http/Controllers/ContactController.php:14
+* @see Http/Controllers/ContactController.php:14
 * @route '/contact'
 */
 contact.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -496,7 +496,7 @@ contact.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\ContactController::contact
-* @see app/Http/Controllers/ContactController.php:14
+* @see Http/Controllers/ContactController.php:14
 * @route '/contact'
 */
 contact.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -506,7 +506,7 @@ contact.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\ContactController::contact
-* @see app/Http/Controllers/ContactController.php:14
+* @see Http/Controllers/ContactController.php:14
 * @route '/contact'
 */
 const contactForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -516,7 +516,7 @@ const contactForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \App\Http\Controllers\ContactController::contact
-* @see app/Http/Controllers/ContactController.php:14
+* @see Http/Controllers/ContactController.php:14
 * @route '/contact'
 */
 contactForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -526,7 +526,7 @@ contactForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\ContactController::contact
-* @see app/Http/Controllers/ContactController.php:14
+* @see Http/Controllers/ContactController.php:14
 * @route '/contact'
 */
 contactForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -543,7 +543,7 @@ contact.form = contactForm
 
 /**
 * @see \App\Http\Controllers\NewsletterController::newsletter
-* @see app/Http/Controllers/NewsletterController.php:12
+* @see Http/Controllers/NewsletterController.php:12
 * @route '/newsletter'
 */
 export const newsletter = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -558,7 +558,7 @@ newsletter.definition = {
 
 /**
 * @see \App\Http\Controllers\NewsletterController::newsletter
-* @see app/Http/Controllers/NewsletterController.php:12
+* @see Http/Controllers/NewsletterController.php:12
 * @route '/newsletter'
 */
 newsletter.url = (options?: RouteQueryOptions) => {
@@ -567,7 +567,7 @@ newsletter.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\NewsletterController::newsletter
-* @see app/Http/Controllers/NewsletterController.php:12
+* @see Http/Controllers/NewsletterController.php:12
 * @route '/newsletter'
 */
 newsletter.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -577,7 +577,7 @@ newsletter.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\NewsletterController::newsletter
-* @see app/Http/Controllers/NewsletterController.php:12
+* @see Http/Controllers/NewsletterController.php:12
 * @route '/newsletter'
 */
 newsletter.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -587,7 +587,7 @@ newsletter.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\NewsletterController::newsletter
-* @see app/Http/Controllers/NewsletterController.php:12
+* @see Http/Controllers/NewsletterController.php:12
 * @route '/newsletter'
 */
 const newsletterForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -597,7 +597,7 @@ const newsletterForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 
 /**
 * @see \App\Http\Controllers\NewsletterController::newsletter
-* @see app/Http/Controllers/NewsletterController.php:12
+* @see Http/Controllers/NewsletterController.php:12
 * @route '/newsletter'
 */
 newsletterForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -607,7 +607,7 @@ newsletterForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\NewsletterController::newsletter
-* @see app/Http/Controllers/NewsletterController.php:12
+* @see Http/Controllers/NewsletterController.php:12
 * @route '/newsletter'
 */
 newsletterForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

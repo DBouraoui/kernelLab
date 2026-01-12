@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminContactController;
 use App\Http\Controllers\admin\AdminNewsletterController;
+use App\Http\Controllers\admin\AdminPicturesConverter;
 use App\Http\Controllers\admin\AdminPostController;
 use App\Http\Controllers\admin\AdminProjectController;
 use App\Http\Controllers\admin\DashboardController;
@@ -77,6 +78,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::put('/project/{id}', 'update')->name('admin.project.update');
             Route::delete('/project/{id}', 'destroy')->name('admin.project.delete');
             Route::patch('/project/{id}/toggle-featured', 'toggleFeatured')->name('admin.project.toggleFeatured');
+        });
+
+        Route::controller(AdminPicturesConverter::class)->group(function () {
+            Route::get('/pictures', 'index')->name('admin.pictures.index');
+            Route::post('/pictures/convert', 'convert')->name('admin.pictures.convert');
         });
     });
 });
