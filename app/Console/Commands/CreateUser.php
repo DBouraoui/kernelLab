@@ -13,8 +13,7 @@ class CreateUser extends Command
      */
     protected $signature = 'user:create
         {email : Email de l’utilisateur}
-        {--password= : Mot de passe (optionnel, sinon demandé)}
-        {--admin : Créer un admin}';
+        {--password= : Mot de passe (optionnel, sinon demandé)}';
 
     /**
      * The console command description.
