@@ -55,5 +55,7 @@ jobs:
             cd ~/mon-app
             # On force le téléchargement de la nouvelle image fraîchement buildée
             docker pull dbouraoui/kernellab:latest
+            docker stack rm kernellab
+            docker volume rm kernellab_public_web
             # On déploie
             docker stack deploy -c compose.prod.yml kernellab --with-registry-auth
