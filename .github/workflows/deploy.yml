@@ -26,10 +26,8 @@ jobs:
         with:
           context: .
           push: true
-          # On build uniquement pour Linux AMD64 (ton VPS) pour gagner du temps
           platforms: linux/amd64
-          tags: dbouraoui/kernallab:latest
-          # Utilisation du cache pour accélérer les builds suivants
+          tags: dbouraoui/kernellab:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -58,6 +56,6 @@ jobs:
           script: |
             cd ~/mon-app
             # On force le téléchargement de la nouvelle image fraîchement buildée
-            docker pull dbouraoui/kernallab:latest
+            docker pull dbouraoui/kernellab:latest
             # On déploie
             docker stack deploy -c compose.prod.yml kernellab --with-registry-auth
