@@ -1,6 +1,6 @@
 services:
   app:
-    image: dbouraoui/kernallab:latest
+    image: dbouraoui/kernellab:latest
     networks:
       - internal
       - public
