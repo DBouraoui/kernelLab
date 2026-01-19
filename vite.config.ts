@@ -4,35 +4,43 @@ import react from '@vitejs/plugin-react';
 import laravel from 'laravel-vite-plugin';
 import { defineConfig } from 'vite';
 
-export default defineConfig({
-    // server: {
-    //     host: '0.0.0.0', // Écoute sur toutes les IPs du conteneur
-    //     port: 5173,
-    //     strictPort: true,
-    //     hmr: {
-    //         host: 'localhost', // Le navigateur doit chercher sur localhost
-    //     },
-    //     watch: {
-    //         usePolling: true, // Nécessaire pour détecter les changements sur Docker
-    //     },
-    // },
-    plugins: [
-        laravel({
-            input: ['resources/css/app.css', 'resources/js/app.tsx'],
-            ssr: 'resources/js/ssr.tsx',
-            refresh: true,
-        }),
-        react({
-            babel: {
-                plugins: ['babel-plugin-react-compiler'],
+export default defineConfig(({ mode }) => {
+    const isDev = mode === 'development';
+
+    return {
+        ...(isDev && {
+            server: {
+                host: '0.0.0.0',
+                port: 5173,
+                strictPort: true,
+                hmr: {
+                    host: 'localhost',
+                },
+                watch: {
+                    usePolling: true,
+                },
             },
         }),
-        tailwindcss(),
-        wayfinder({
-            formVariants: true,
-        }),
-    ],
-    esbuild: {
-        jsx: 'automatic',
-    },
+
+        plugins: [
+            laravel({
+                input: ['resources/css/app.css', 'resources/js/app.tsx'],
+                ssr: 'resources/js/ssr.tsx',
+                refresh: true,
+            }),
+            react({
+                babel: {
+                    plugins: ['babel-plugin-react-compiler'],
+                },
+            }),
+            tailwindcss(),
+            wayfinder({
+                formVariants: true,
+            }),
+        ],
+
+        esbuild: {
+            jsx: 'automatic',
+        },
+    };
 });

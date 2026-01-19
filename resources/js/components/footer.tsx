@@ -1,6 +1,6 @@
 import {  Github, Linkedin, Terminal } from "lucide-react"
 import { Link } from '@inertiajs/react';
-import { about, blog, contact, home, newsletter } from '@/routes';
+import { about, blog, contact, home, newsletter, projects } from '@/routes';
 
 export function Footer() {
     const currentYear = new Date().getFullYear()
@@ -28,7 +28,7 @@ export function Footer() {
                     {/* --- NAVIGATION RAPIDE --- */}
                     <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-medium text-muted-foreground">
                         <Link href={blog()} className="hover:text-primary transition-colors" prefetch>Blog</Link>
-                        <Link href="/projets" className="hover:text-primary transition-colors" prefetch>Projets</Link>
+                        <Link href={projects()} className="hover:text-primary transition-colors" prefetch>Projets</Link>
                         <Link href={about()} className="hover:text-primary transition-colors">À propos</Link>
                         <Link href={contact()} className="hover:text-primary transition-colors">Contact</Link>
                         <Link href={newsletter()} className="hover:text-primary transition-colors">Newsletter</Link>

@@ -90,7 +90,7 @@ export default function ProjectsSection({ projects }: { projects: ProjectType[] 
                             </div>
                         );
                     }) : (
-                        <p className="text-muted-foreground italic col-span-full text-center">Aucun projet mis en avant pour le moment.</p>
+                            <p className="text-muted-foreground italic col-span-full text-center">Aucun projet mis en avant pour le moment.</p>
                     )}
                 </div>
             </div>

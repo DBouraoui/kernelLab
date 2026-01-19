@@ -131,11 +131,9 @@ export function Articles({ posts }: { posts: PostInterface[] }) {
                     </div>
                 ) : (
                     /* --- FALLBACK TEXTE PROPRE --- */
-                    <div className="flex flex-col items-center justify-center py-20 px-6 text-center border-2 border-dashed border-border/30 rounded-[2rem] bg-card/20">
                         <p className="text-muted-foreground italic col-span-full text-center">
                             Aucun article n'a été publié pour le moment.
                         </p>
-                    </div>
                 )}
             </div>
         </section>

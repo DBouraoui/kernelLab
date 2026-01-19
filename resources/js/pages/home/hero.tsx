@@ -19,9 +19,9 @@ export default function Hero() {
                     </div>
 
                     <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1]">
-                        Je bâtis des apps <br />
+                        Développeur <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Full Stack</span>
-                        <span className="text-foreground"> et des solutions </span>
+                        <span className="text-foreground"> et solutions </span>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">DevOps.</span>
 
                     </h1>
@@ -105,7 +105,7 @@ export default function Hero() {
                             </div>
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-1">
-                                    <Cloud className="h-4 w-4 text-cyan-500" />
+                                    <Cloud className="h-4 w-4 text-orange-500" />
                                     <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground">Infrastructure</span>
                                 </div>
                                 <h3 className="font-bold text-lg">DevOps & Cloud</h3>

@@ -24,12 +24,12 @@ export default function AboutPage() {
 
                             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-none">
                                 Concevoir pour la <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-primary">scalabilité.</span>
+                                <span className="bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-primary">scalabilité.</span>
                             </h1>
 
                             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed max-w-2xl">
                                 <p>
-                                    Spécialisé dans le développement **Backend haute performance**, je construis des API robustes et sécurisées principalement avec <strong className="text-foreground">Symfony</strong> et <strong className="text-foreground">Go</strong>. Mon approche est guidée par la qualité logicielle (Clean Architecture, DDD) et l'efficacité des traitements de données.
+                                    Spécialisé dans le développement Backend haute performance, je construis des API robustes et sécurisées principalement avec <strong className="text-foreground">Symfony</strong> et <strong className="text-foreground">Go</strong>. Mon approche est guidée par la qualité logicielle (Clean Architecture, DDD) et l'efficacité des traitements de données.
                                 </p>
                                 <p>
                                     Côté infrastructure, j'évolue dans l'écosystème <strong className="text-foreground">Cloud Native</strong>. Mon rôle est de garantir que le code backend tourne dans un environnement automatisé, scalable et monitoré grâce à <strong className="text-foreground">Kubernetes</strong> et aux pratiques <strong className="text-foreground">DevOps</strong>.
@@ -37,7 +37,6 @@ export default function AboutPage() {
                             </div>
                         </div>
 
-                        {/* VISUEL : Code ou Architecture (Plus pertinent pour un profil Back/DevOps) */}
                         <div className="flex-1 w-full max-w-[500px]">
                             <div className="relative p-8 rounded-[3rem] border bg-muted/20 backdrop-blur-sm group overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/5 to-orange-500/5 -z-10 group-hover:scale-110 transition-transform duration-700" />
@@ -70,7 +69,7 @@ class Infrastructure {
                             </div>
                             <h3 className="text-xl font-bold mb-4">Core Backend</h3>
                             <p className="text-muted-foreground text-sm leading-relaxed">
-                                Développement d'architectures complexes sous **Symfony 7** et **Go**. Expertise en gestion de bases de données relationnelles (PostgreSQL) et NoSQL.
+                                Développement d'architectures complexes sous Symfony 7 et Go. Expertise en gestion de bases de données relationnelles (PostgreSQL) et NoSQL.
                             </p>
                         </div>
 
@@ -81,7 +80,7 @@ class Infrastructure {
                             </div>
                             <h3 className="text-xl font-bold mb-4">DevOps & Orchestration</h3>
                             <p className="text-muted-foreground text-sm leading-relaxed">
-                                Mise en œuvre de solutions de conteneurisation (**Docker**) et orchestration (**K8s**). CI/CD automatisée pour des cycles de release rapides.
+                                Mise en œuvre de solutions de conteneurisation (Docker) et orchestration (K8s). CI/CD automatisée pour des cycles de release rapides.
                             </p>
                         </div>
 
@@ -92,7 +91,7 @@ class Infrastructure {
                             </div>
                             <h3 className="text-xl font-bold mb-4">Frontend Modern</h3>
                             <p className="text-muted-foreground text-sm leading-relaxed">
-                                Interfaces riches et réactives utilisant **React** ou **Angular**, assurant une consommation fluide des API backend développées.
+                                Interfaces riches et réactives utilisant React ou Angular, assurant une consommation fluide des API backend développées.
                             </p>
                         </div>
                     </div>
