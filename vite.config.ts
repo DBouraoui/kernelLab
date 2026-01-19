@@ -5,17 +5,17 @@ import laravel from 'laravel-vite-plugin';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-    server: {
-        host: '0.0.0.0', // Écoute sur toutes les IPs du conteneur
-        port: 5173,
-        strictPort: true,
-        hmr: {
-            host: 'localhost', // Le navigateur doit chercher sur localhost
-        },
-        watch: {
-            usePolling: true, // Nécessaire pour détecter les changements sur Docker
-        },
-    },
+    // server: {
+    //     host: '0.0.0.0', // Écoute sur toutes les IPs du conteneur
+    //     port: 5173,
+    //     strictPort: true,
+    //     hmr: {
+    //         host: 'localhost', // Le navigateur doit chercher sur localhost
+    //     },
+    //     watch: {
+    //         usePolling: true, // Nécessaire pour détecter les changements sur Docker
+    //     },
+    // },
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.tsx'],

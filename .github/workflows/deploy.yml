@@ -56,6 +56,12 @@ jobs:
             # On force le téléchargement de la nouvelle image fraîchement buildée
             docker pull dbouraoui/kernellab:latest
             docker stack rm kernellab
-            docker volume rm kernellab_public_web
+
+            echo "Waiting for services to stop..."
+            while docker ps --filter "name=kernellab" --format '{{.ID}}' | grep -q .; do
+            sleep 2
+            done
+
+            docker volume rm kernellab_public_web || true
             # On déploie
             docker stack deploy -c compose.prod.yml kernellab --with-registry-auth
