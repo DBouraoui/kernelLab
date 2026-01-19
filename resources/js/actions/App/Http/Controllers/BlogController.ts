@@ -82,7 +82,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\BlogController::show
-* @see Http/Controllers/BlogController.php:37
+* @see Http/Controllers/BlogController.php:36
 * @route '/blog/{post}'
 */
 export const show = (args: { post: string | number } | [post: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -97,7 +97,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\BlogController::show
-* @see Http/Controllers/BlogController.php:37
+* @see Http/Controllers/BlogController.php:36
 * @route '/blog/{post}'
 */
 show.url = (args: { post: string | number } | [post: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -124,7 +124,7 @@ show.url = (args: { post: string | number } | [post: string | number ] | string 
 
 /**
 * @see \App\Http\Controllers\BlogController::show
-* @see Http/Controllers/BlogController.php:37
+* @see Http/Controllers/BlogController.php:36
 * @route '/blog/{post}'
 */
 show.get = (args: { post: string | number } | [post: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -134,7 +134,7 @@ show.get = (args: { post: string | number } | [post: string | number ] | string 
 
 /**
 * @see \App\Http\Controllers\BlogController::show
-* @see Http/Controllers/BlogController.php:37
+* @see Http/Controllers/BlogController.php:36
 * @route '/blog/{post}'
 */
 show.head = (args: { post: string | number } | [post: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -144,7 +144,7 @@ show.head = (args: { post: string | number } | [post: string | number ] | string
 
 /**
 * @see \App\Http\Controllers\BlogController::show
-* @see Http/Controllers/BlogController.php:37
+* @see Http/Controllers/BlogController.php:36
 * @route '/blog/{post}'
 */
 const showForm = (args: { post: string | number } | [post: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -154,7 +154,7 @@ const showForm = (args: { post: string | number } | [post: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\BlogController::show
-* @see Http/Controllers/BlogController.php:37
+* @see Http/Controllers/BlogController.php:36
 * @route '/blog/{post}'
 */
 showForm.get = (args: { post: string | number } | [post: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -164,7 +164,7 @@ showForm.get = (args: { post: string | number } | [post: string | number ] | str
 
 /**
 * @see \App\Http\Controllers\BlogController::show
-* @see Http/Controllers/BlogController.php:37
+* @see Http/Controllers/BlogController.php:36
 * @route '/blog/{post}'
 */
 showForm.head = (args: { post: string | number } | [post: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

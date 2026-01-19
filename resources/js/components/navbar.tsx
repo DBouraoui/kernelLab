@@ -24,9 +24,10 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet";
-import { about, blog, contact, home, newsletter } from '@/routes';
+import { about, blog, contact, home, newsletter, projects } from '@/routes';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Link } from '@inertiajs/react';
+import project from '@/routes/admin/project';
 
 interface MenuItem {
     title: string;
@@ -80,32 +81,8 @@ const Navbar = ({
                          },
                          {
                              title: "Projets",
-                             url: "#",
-                             items: [
-                                 {
-                                     title: "Écosystème Open Source",
-                                     description: "Exploration de mes contributions, librairies Go/PHP et outils DevOps.",
-                                     // FolderGit2 évoque directement le dépôt de code
-                                     icon: <FolderGit className="size-5 shrink-0 text-orange-500" />,
-                                     url: "/projets/open-source",
-                                 },
-                                 {
-                                     title: "Projets Clients & WebApps",
-                                     description: "Plateformes sur mesure et architectures robustes pour le web.",
-                                     // Globe évoque le déploiement mondial / web
-                                     icon: <Globe className="size-5 shrink-0 text-blue-500" />,
-                                     url: "/projets/clients",
-                                 },
-                                 {
-                                     title: "Produits SaaS & Micro-services",
-                                     description: "Solutions logicielles complètes conçues pour la scalabilité.",
-                                     // Rocket ou Layers évoquent le produit fini et l'empilement technique
-                                     icon: <Layers className="size-5 shrink-0 text-emerald-500" />,
-                                     url: "/projets/saas",
-                                 },
-                             ]
+                             url: projects().url
                          },
-
                          {
                              title: "A propos",
                              url: about().url,

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Project;
 use Inertia\Inertia;
 
 class GuestController extends Controller
@@ -11,8 +12,15 @@ class GuestController extends Controller
 
         $posts = Post::published()->latest()->take(4)->get();
 
+        $featuredProjects = Project::published()
+            ->where('is_featured', true)
+            ->latest()
+            ->take(3)
+            ->get();
+
         return Inertia::render('home/index', [
-            'posts' => $posts
+            'posts' => $posts,
+            'projects' => $featuredProjects,
         ]);
     }
     public function contact() {

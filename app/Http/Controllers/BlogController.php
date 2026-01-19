@@ -31,7 +31,6 @@ class BlogController extends Controller
             'comingSoon' => $comingSoon,
             'allTags' => $allTags,
         ]);
-        //todo faire un flux rss pour les articles
     }
 
     public function show(string $slug)

@@ -15,7 +15,6 @@ import ShowHero from '@/pages/blog/show-hero';
 import { toast } from 'sonner';
 
 export default function BlogShow({ post, user}: { post: PostInterface, user: UserInterface }) {
-    // État pour la Table des Matières (TOC)
     const [headings, setHeadings] = useState<{ id: string; text: string; level: number }[]>([]);
     const [activeId, setActiveId] = useState<string>('');
 
@@ -92,9 +91,6 @@ export default function BlogShow({ post, user}: { post: PostInterface, user: Use
                             <Button onClick={()=>handleShare()} variant="outline" size="icon" className="rounded-full h-10 w-10 text-muted-foreground hover:text-blue-500" title="Partager">
                                 <Share2 className="h-4 w-4" />
                             </Button>
-                            {/*<Button variant="outline" size="icon" className="rounded-full h-10 w-10 text-muted-foreground hover:text-yellow-500" title="Sauvegarder">*/}
-                            {/*    <Bookmark className="h-4 w-4" />*/}
-                            {/*</Button>*/}
                         </div>
                     </aside>
 

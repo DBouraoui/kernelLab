@@ -10,6 +10,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -33,6 +34,11 @@ Route::controller(ContactController::class)->group(function () {
 Route::controller(NewsletterController::class)->group(function () {
     Route::get('/newsletter', 'index')->name('newsletter');
     Route::post('/newsletter', 'store')->name('newsletter.store')->middleware('throttle:3,1');
+});
+
+Route::controller(ProjectController::class)->group(function () {
+    Route::get('/projects', 'list')->name('projects');
+    Route::get('/projects/{project}', 'show')->name('projects.show');
 });
 
 // --- Routes Protégées (Auth) ---

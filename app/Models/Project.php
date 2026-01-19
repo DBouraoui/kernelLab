@@ -67,7 +67,8 @@ class Project extends Model
      */
     public function scopePublished($query)
     {
-        return $query->where('status', 'published');
+        return $query->where('status', 'published')
+            ->where('created_at', '<=', now());
     }
 
     /**

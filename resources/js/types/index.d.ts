@@ -87,7 +87,7 @@ export interface ProjectType {
     stack: string[]; // ['Symfony', 'Docker', 'AWS', 'React Native']
     content: string;
     description_short: string;
-    image_url?: string;
+    thumbnail_url?: string;
     github_url?: string;
     live_url?: string;
     created_at: string;
