@@ -4,9 +4,7 @@ import GuestLayout from '@/layouts/guest-layout';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import {
-    Share2,
-} from 'lucide-react';
+import { Share2, Code2, ListTree } from 'lucide-react';
 import MarkdownViewer from '@/components/markdown-viewer';
 import { PostInterface, UserInterface } from '@/types';
 import { contact } from '@/routes';
@@ -14,12 +12,12 @@ import FloatBar from '@/pages/blog/float-bar';
 import ShowHero from '@/pages/blog/show-hero';
 import { toast } from 'sonner';
 
-export default function BlogShow({ post, user}: { post: PostInterface, user: UserInterface }) {
+export default function BlogShow({ post, user }: { post: PostInterface, user: UserInterface }) {
     const [headings, setHeadings] = useState<{ id: string; text: string; level: number }[]>([]);
     const [activeId, setActiveId] = useState<string>('');
 
+    // --- LOGIQUE DE PARTAGE ---
     const handleShare = async () => {
-        // On prépare les données à partager
         const shareData = {
             title: post.title,
             text: post.description,
@@ -31,28 +29,49 @@ export default function BlogShow({ post, user}: { post: PostInterface, user: Use
                 await navigator.share(shareData);
             } else {
                 await navigator.clipboard.writeText(window.location.href);
-                toast.success("Le lien de l'article est dans votre presse-papier.");
+                toast.success("Lien copié !");
             }
         } catch (err) {
-            console.error("Erreur lors du partage :", err);
+            console.error("Erreur de partage :", err);
         }
     };
 
+    // --- EXTRACTION DES TITRES (ToC) ---
     useEffect(() => {
-        const regex = /^(#{2,3})\s+(.+)$/gm;
-        const found = [];
-        let match;
-        while ((match = regex.exec(post.content)) !== null) {
-            const level = match[1].length; // ## = 2, ### = 3
-            const text = match[2];
-            const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
-            found.push({ id, text, level });
-        }
-        setHeadings(found);
+        const articleElement = document.querySelector('article');
+        if (!articleElement) return;
+
+        // On cible h2 et h3 pour la table des matières
+        const elements = Array.from(articleElement.querySelectorAll('h2, h3'));
+
+        const extractedHeadings = elements.map((el, index) => {
+            const text = el.textContent || "";
+            const slug = text
+                .toLowerCase()
+                .trim()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/[^\w\s-]/g, '')
+                .replace(/[\s_-]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+
+            const uniqueId = `${slug}-${index}`;
+            el.id = uniqueId; // On injecte l'ID unique dans le DOM
+
+            return {
+                id: uniqueId,
+                text: text,
+                level: parseInt(el.tagName.replace('H', '')),
+            };
+        });
+
+        setHeadings(extractedHeadings);
     }, [post.content]);
 
-    // Intersection Observer pour surligner le titre actif au scroll
+    // --- DETECTION DU TITRE ACTIF ---
     useEffect(() => {
+        if (headings.length === 0) return;
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -61,7 +80,7 @@ export default function BlogShow({ post, user}: { post: PostInterface, user: Use
                     }
                 });
             },
-            { rootMargin: '-100px 0px -60% 0px' }
+            { rootMargin: '-100px 0px -66% 0px' } // Déclenche quand le titre est dans le tiers supérieur
         );
 
         headings.forEach(({ id }) => {
@@ -76,70 +95,89 @@ export default function BlogShow({ post, user}: { post: PostInterface, user: Use
         <GuestLayout>
             <Head title={post.title} />
 
-            <FloatBar post={post}/>
+            {/* Barre flottante en haut au scroll */}
+            <FloatBar post={post} />
 
             <div className="min-h-screen bg-background pb-20">
-                {/* --- HEADER HERO --- */}
                 <ShowHero post={post} user={user} />
 
-                {/* --- MAIN CONTENT & SIDEBAR --- */}
                 <div className="container max-w-7xl mx-auto px-4 mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
 
-                    {/* Colonne Gauche: Share buttons (Desktop) */}
+                    {/* --- SIDEBAR GAUCHE (SOCIAL) --- */}
                     <aside className="hidden lg:block lg:col-span-1">
                         <div className="sticky top-32 flex flex-col gap-4 items-center">
-                            <Button onClick={()=>handleShare()} variant="outline" size="icon" className="rounded-full h-10 w-10 text-muted-foreground hover:text-blue-500" title="Partager">
-                                <Share2 className="h-4 w-4" />
+                            <Button
+                                onClick={handleShare}
+                                variant="outline"
+                                size="icon"
+                                className="rounded-full h-12 w-12 shadow-sm hover:text-primary transition-all"
+                            >
+                                <Share2 className="h-5 w-5" />
                             </Button>
                         </div>
                     </aside>
 
-                    {/* Colonne Centrale: Article */}
-                    <article className="lg:col-span-8">
+                    {/* --- CONTENU PRINCIPAL --- */}
+                    <article className="lg:col-span-8 min-w-0">
                         {post.thumbnail && (
-                            <div className="rounded-2xl overflow-hidden shadow-2xl mb-12 border border-border/50">
-                                <img src={post.thumbnail} alt={post.title} className="w-full object-cover max-h-[500px]" />
+                            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl mb-12 border border-border/50 bg-muted">
+                                <img
+                                    src={post.thumbnail}
+                                    alt={post.title}
+                                    className="w-full object-cover max-h-[500px] hover:scale-105 transition-transform duration-1000"
+                                />
                             </div>
                         )}
 
-                        {/* Le contenu Markdown rendu proprement */}
-                        <div className="mb-16">
+                        <div className="prose prose-slate dark:prose-invert max-w-none">
                             <MarkdownViewer content={post.content} />
                         </div>
 
-                        <Separator className="my-8" />
+                        <Separator className="my-12" />
 
-                        {/* Tags Footer */}
-                        <div className="flex flex-wrap gap-2">
-                            {post.tags.map(tag => (
-                                <Badge key={tag} variant="secondary" className="px-3 py-1 text-sm">
+                        <div className="flex flex-wrap gap-2 mb-12">
+                            {post.tags?.map(tag => (
+                                <Badge key={tag} variant="secondary" className="px-4 py-1.5 rounded-full text-xs font-bold bg-secondary/50 border-none">
                                     #{tag}
                                 </Badge>
                             ))}
                         </div>
                     </article>
 
-                    {/* Colonne Droite: Table des matières (Sticky) */}
+                    {/* --- SIDEBAR DROITE (ToC & PROMO) --- */}
                     <aside className="hidden lg:block lg:col-span-3">
-                        <div className="sticky top-32 space-y-8">
+                        <div className="sticky top-32 space-y-10">
+
+                            {/* Table des matières */}
                             {headings.length > 0 && (
-                                <div className="p-6 rounded-xl bg-card border shadow-sm">
-                                    <h4 className="font-bold text-sm uppercase tracking-wider text-muted-foreground mb-4">
-                                        Dans cet article
-                                    </h4>
-                                    <nav className="flex flex-col space-y-1">
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-2 text-muted-foreground mb-4">
+                                        <ListTree className="h-4 w-4" />
+                                        <span className="text-xs font-black uppercase tracking-widest">Sommaire</span>
+                                    </div>
+                                    <nav className="flex flex-col space-y-0.5 border-l border-border/60">
                                         {headings.map((heading) => (
                                             <a
                                                 key={heading.id}
                                                 href={`#${heading.id}`}
-                                                className={`text-sm py-1.5 transition-colors border-l-2 pl-4 ${
-                                                    activeId === heading.id
-                                                        ? 'border-blue-600 text-blue-600 font-medium'
-                                                        : 'border-transparent text-muted-foreground hover:text-foreground hover:border-border'
-                                                } ${heading.level === 3 ? 'ml-2' : ''}`}
+                                                className={`
+                                                    text-sm py-2 px-4 transition-all border-l-2 -ml-[1.5px]
+                                                    ${activeId === heading.id
+                                                    ? 'border-primary text-primary font-bold bg-primary/5 rounded-r-lg'
+                                                    : 'border-transparent text-muted-foreground hover:text-foreground hover:border-border'
+                                                }
+                                                    ${heading.level === 3 ? 'pl-8 text-xs' : ''}
+                                                `}
                                                 onClick={(e) => {
                                                     e.preventDefault();
-                                                    document.getElementById(heading.id)?.scrollIntoView({ behavior: 'smooth' });
+                                                    const el = document.getElementById(heading.id);
+                                                    if (el) {
+                                                        const offset = 100;
+                                                        window.scrollTo({
+                                                            top: el.offsetTop - offset,
+                                                            behavior: 'smooth'
+                                                        });
+                                                    }
                                                 }}
                                             >
                                                 {heading.text}
@@ -149,16 +187,20 @@ export default function BlogShow({ post, user}: { post: PostInterface, user: Use
                                 </div>
                             )}
 
-                            {/* Promo Box / Newsletter pourrait aller ici */}
-                            <div className="p-6 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 border border-blue-100 dark:border-blue-900">
-                                <h4 className="font-bold mb-2">Besoin d'un dev ?</h4>
-                                <p className="text-sm text-muted-foreground mb-4">
-                                    Je suis disponible pour des missions freelance sur Laravel & React.
+                            {/* CTA Box */}
+                            <div className="p-8 rounded-[2rem] bg-gradient-to-br from-primary/10 via-background to-background border border-primary/20 shadow-sm relative overflow-hidden group">
+                                <div className="absolute -right-4 -top-4 opacity-10 group-hover:rotate-12 transition-transform duration-500">
+                                    <Code2 className="h-24 w-24" />
+                                </div>
+                                <h4 className="font-black text-lg mb-2 relative">Besoin d'un expert ?</h4>
+                                <p className="text-sm text-muted-foreground mb-6 relative">
+                                    Freelance spécialisé en architectures **Laravel & React**. Discutons de votre projet.
                                 </p>
-                                <Button size="sm" className="w-full">
-                                    <Link href={contact()} >Me contacter</Link>
+                                <Button className="w-full rounded-xl font-bold group-hover:scale-105 transition-transform" asChild>
+                                    <Link href={contact()}>Me contacter</Link>
                                 </Button>
                             </div>
+
                         </div>
                     </aside>
                 </div>
