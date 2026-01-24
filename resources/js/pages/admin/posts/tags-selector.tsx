@@ -16,21 +16,188 @@ export default function TagsSelector({ field }: { field: any}) {
     const categories = [
         {
             label: 'Backend Frameworks',
-            options: ['Laravel', 'Fiber', 'Symfony', 'Django', 'NestJS', 'AdonisJS']
+            options: [
+                'Symfony',
+                'Laravel',
+                'Django',
+                'FastAPI',
+                'NestJS',
+                'AdonisJS',
+                'Spring Boot',
+                'Express.js',
+                'Fiber',
+                'Gin',
+                'Phoenix'
+            ]
         },
         {
             label: 'Frontend & Hybride',
-            options: ['React', 'Next.js', 'Vue.js', 'Nuxt', 'SvelteKit', 'Inertia.js']
+            options: [
+                'React',
+                'Next.js',
+                'Vue.js',
+                'Nuxt',
+                'Svelte',
+                'SvelteKit',
+                'Angular',
+                'SolidJS',
+                'Inertia.js',
+                'Astro'
+            ]
+        },
+        {
+            label: 'Langages',
+            options: [
+                'PHP',
+                'JavaScript',
+                'TypeScript',
+                'Python',
+                'Go',
+                'Java',
+                'C#',
+                'Rust',
+                'Ruby',
+                'Kotlin',
+                'Swift'
+            ]
         },
         {
             label: 'DevOps & Orchestration',
-            options: ['Docker', 'K8s', 'K3s', 'Terraform', 'Ansible']
+            options: [
+                'Docker',
+                'Docker Compose',
+                'Kubernetes',
+                'K8s',
+                'K3s',
+                'Helm',
+                'Terraform',
+                'Ansible',
+                'Pulumi',
+                'Nomad'
+            ]
+        },
+        {
+            label: 'CI / CD',
+            options: [
+                'GitHub Actions',
+                'GitLab CI',
+                'Jenkins',
+                'CircleCI',
+                'ArgoCD',
+                'Tekton',
+                'Drone CI'
+            ]
+        },
+        {
+            label: 'Cloud Providers',
+            options: [
+                'AWS',
+                'GCP',
+                'Azure',
+                'OVHcloud',
+                'Scaleway',
+                'DigitalOcean',
+                'Hetzner'
+            ]
         },
         {
             label: 'Proxy & Serveurs',
-            options: ['Nginx', 'Apache', 'Traefik', 'Caddy', 'HAProxy']
+            options: [
+                'Nginx',
+                'Apache',
+                'Traefik',
+                'Caddy',
+                'HAProxy',
+                'FrankenPHP',
+                'Envoy'
+            ]
+        },
+        {
+            label: 'Bases de données',
+            options: [
+                'MySQL',
+                'PostgreSQL',
+                'MariaDB',
+                'SQLite',
+                'MongoDB',
+                'Redis',
+                'Elasticsearch',
+                'Cassandra'
+            ]
+        },
+        {
+            label: 'Data & Analytics',
+            options: [
+                'Pandas',
+                'NumPy',
+                'Apache Spark',
+                'Apache Kafka',
+                'Airflow',
+                'dbt',
+                'BigQuery'
+            ]
+        },
+        {
+            label: 'IA & Machine Learning',
+            options: [
+                'TensorFlow',
+                'PyTorch',
+                'Scikit-learn',
+                'OpenAI API',
+                'Hugging Face',
+                'LangChain',
+                'MLflow'
+            ]
+        },
+        {
+            label: 'Cybersécurité',
+            options: [
+                'OWASP',
+                'JWT',
+                'OAuth2',
+                'OpenID Connect',
+                'Keycloak',
+                'Vault',
+                'Pentesting',
+                'Zero Trust'
+            ]
+        },
+        {
+            label: 'Monitoring & Observabilité',
+            options: [
+                'Prometheus',
+                'Grafana',
+                'Loki',
+                'ELK Stack',
+                'Datadog',
+                'New Relic',
+                'OpenTelemetry'
+            ]
+        },
+        {
+            label: 'Architecture & Concepts',
+            options: [
+                'Microservices',
+                'Monolithe',
+                'Clean Architecture',
+                'Hexagonal Architecture',
+                'Event Driven',
+                'CQRS',
+                'Domain Driven Design'
+            ]
+        },
+        {
+            label: 'Admin system',
+            options: [
+                "Shell",
+                "Bash",
+                "Scripting",
+                "Permissions",
+                "Terminal"
+            ]
         }
     ];
+
 
     // Ajouter un tag au tableau existant
     const handleAddTag = (value: string) => {
