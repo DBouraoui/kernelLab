@@ -54,6 +54,8 @@ export default function Create() {
         },
     })
 
+    // todo calculer le temps directement via le nombre de mots écrit
+
     function onSubmit(values: z.infer<typeof ArticleSchema>) {
         setIsLoading(true);
         router.post('/dashboard/store', values, {

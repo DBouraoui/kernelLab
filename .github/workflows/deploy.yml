@@ -42,7 +42,7 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "compose.prod.yml,caddy/prod/Caddyfile"
+          source: "compose.prod.yml,caddy/prod/Caddyfile,deploy.sh"
           target: "~/mon-app"
 
       - name: Deploy to Docker Swarm
@@ -53,15 +53,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ~/mon-app
-            # On force le téléchargement de la nouvelle image fraîchement buildée
+            echo "Récupération de l'image sur le HUB distant"
             docker pull dbouraoui/kernellab:latest
-            docker stack rm kernellab
-
-            echo "Waiting for services to stop..."
-            while docker ps --filter "name=kernellab" --format '{{.ID}}' | grep -q .; do
-            sleep 2
-            done
-
-            docker volume rm kernellab_public_web || true
-            # On déploie
-            docker stack deploy -c compose.prod.yml kernellab --with-registry-auth
+            sudo chmod +x ./deploy.sh
+            ./deploy.sh
+            echo "deploy réussit"

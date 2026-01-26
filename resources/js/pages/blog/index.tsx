@@ -40,6 +40,8 @@ export default function BlogIndex({ posts, comingSoon, allTags }: BlogIndexProps
         ? filteredPosts.filter(p => p.id !== latestPost.id)
         : filteredPosts;
 
+    // todo faire les posts similaire en fonction des tags du post
+    // todo ajouter le nombre de vue a l'articles
     return (
         <GuestLayout>
             <Head title="Blog Tech | Articles & Tutoriels" />
