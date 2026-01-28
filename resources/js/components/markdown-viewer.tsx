@@ -54,6 +54,13 @@ const CodeBlock = ({ node, inline, className, children, ...props }: any) => {
 };
 
 export default function MarkdownViewer({ content }: { content: string }) {
+
+    const getYouTubeId = (url: string) => {
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
+    };
+
     return (
         <div className="prose prose-slate dark:prose-invert max-w-none
                 /* Headings */
@@ -133,6 +140,68 @@ export default function MarkdownViewer({ content }: { content: string }) {
 
                     // --- PARAGRAPHES ---
                     p: ({node, ...props}) => <p className="leading-relaxed mb-6 !text-muted-foreground/90" {...props} />,
+                    a: ({ node, ...props }) => {
+                        const url = props.href || '';
+                        const ytId = getYouTubeId(url);
+
+                        // 1. Si c'est un lien YouTube
+                        if (ytId) {
+                            return (
+                                <div className="my-8 aspect-video w-full overflow-hidden rounded-2xl border border-border shadow-xl">
+                                    <iframe
+                                        width="100%"
+                                        height="100%"
+                                        src={`https://www.youtube.com/embed/${ytId}`}
+                                        title="YouTube video player"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                        className="h-full w-full"
+                                    ></iframe>
+                                </div>
+                            );
+                        }
+
+                        // 2. Si c'est un lien direct vers une vidéo (mp4, webm)
+                        if (url.match(/\.(mp4|webm|ogg)$/i)) {
+                            return (
+                                <div className="my-8 overflow-hidden rounded-2xl border border-border bg-black shadow-xl">
+                                    <video
+                                        controls
+                                        className="w-full"
+                                        preload="metadata"
+                                    >
+                                        <source src={url} type={`video/${url.split('.').pop()}`} />
+                                        Votre navigateur ne supporte pas la lecture de vidéos.
+                                    </video>
+                                </div>
+                            );
+                        }
+
+                        // 3. Sinon, c'est un lien normal
+                        return (
+                            <a
+                                {...props}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 hover:underline font-bold inline-flex items-center gap-1"
+                            >
+                                {props.children}
+                            </a>
+                        );
+                    },
+
+                    // Optionnel : transformer les images en vidéos si l'URL finit par .mp4
+                    img: ({ node, ...props }) => {
+                        if (props.src?.match(/\.(mp4|webm)$/i)) {
+                            return (
+                                <video autoPlay muted loop playsInline className="rounded-xl w-full my-6">
+                                    <source src={props.src} />
+                                </video>
+                            );
+                        }
+                        return <img {...props} className="rounded-xl border border-border shadow-lg my-8" />;
+                    }
                 }}
             >
                 {content}
